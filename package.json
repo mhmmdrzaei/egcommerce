@@ -1,0 +1,48 @@
+{
+  "name": "theme-hackeryou",
+  "version": "1.0.0",
+  "description": "A starter HackerYou theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.8",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^7.0.3",
+    "npm-force-resolutions": "0.0.10"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.10"
+  },
+  "dependencies": {
+    "cjs-loader": "^0.1.0",
+    "clean": "^4.0.2",
+    "del": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "jquery-colorbox": "^1.6.4",
+    "loader": "^2.1.1",
+    "loaderjs": "^1.0.0",
+    "sass": "^1.55.0"
+  }
+}
