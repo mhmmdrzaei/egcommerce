@@ -1,29 +1,73 @@
 <footer>
-<div class="email">
-<a href="mailto:<?php echo get_field('site_email','options')?>"><?php echo get_field('site_email','options')?></a>
 
-</div>
 
 <?php
 if( get_field('footer_with_physical_location_', 'options') ) {
-    echo get_field('gallery_hours','options');
+   
 
 $location = get_field('gallery_address','options');
-
-echo '<p>Address: ' . esc_html($location['address']) . '</p>';
 if( $location ): ?>
+<section class="footermap">
+<h3>Finds us at</h3>
     <div class="acf-map" data-zoom="16">
         <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
     </div>
-<?php endif;
+</section>
+<section class="locationaddress">
+    <?php echo esc_html($location['address']);
+     echo get_field('gallery_hours','options');
+    ?>
 
-} ?>
+    
 
-
+</section>
 <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'footer'
       )); ?>
+
+
+
+<?php 
+$image = get_field('footer_logo', 'options');
+if( !empty( $image ) ): 
+?>
+
+<figure class="footerlogo">
+<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+</figure>
+
+<?php endif; ?>
+
+
+<?php endif; 
+
+} else { ?>
+    <div class="email">
+        <a href="mailto:<?php echo get_field('site_email','options')?>"><?php echo get_field('site_email','options')?></a>
+    </div>
+    <?php 
+    $image = get_field('footer_logo', 'options');
+    if( !empty( $image ) ): 
+    ?>
+
+    <figure class="footerlogo">
+    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+    </figure>
+
+    <?php endif; ?>
+    <?php wp_nav_menu( array(
+        'container' => false,
+        'theme_location' => 'footer'
+      )); 
+
+
+}
+
+?>
+
+
+
 <p class="copyright">
 &copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
 
