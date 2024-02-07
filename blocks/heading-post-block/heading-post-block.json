@@ -1,0 +1,19 @@
+{
+    "apiVersion": 2,
+    "name": "heading-post-block",
+    "title": "Heading Post Block",
+    "description": "A custom block to display a selected post with its featured image, title, excerpt, and a 'Read More' button.",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["post", "heading", "excerpt"],
+    "supports": {
+      "html": false
+    },
+    "attributes": {
+      "selected_post": {
+        "type": "integer"
+      }
+    },
+    "render_callback": "render_heading_post_block"
+  }
+  
