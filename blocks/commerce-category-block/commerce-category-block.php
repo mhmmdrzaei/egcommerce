@@ -14,13 +14,16 @@ function register_commerce_category_block() {
 }
 add_action('acf/init', 'register_commerce_category_block');
 
+
 // Render Commerce Category Block
 function render_commerce_category_block($block) {
     // Retrieve field values
-    $commerce_category_container = get_field('commerce_category_container', $block['id']);
-    $selected_category_id = $commerce_category_container['commerce_category'];
-    $background_color = $commerce_category_container['background_colour'];
-    $highlight_color = $commerce_category_container['highlight_colour'];
+    $commerce_category = get_field('commerce_category');
+    $selected_category_id = $commerce_category; //
+
+    // Retrieve custom category colors
+    $background_color = get_term_meta($selected_category_id, 'background_colour_cat', true);
+    $highlight_color = get_term_meta($selected_category_id, 'highlight_colour_cat', true);
 
     // Output background and highlight colors
     $style = "style='background-color: $background_color; border-top: 4px solid $highlight_color;'";
@@ -29,11 +32,8 @@ function render_commerce_category_block($block) {
     echo "<div class='commerce-category-block' $style>";
 
     // Output category name
-    $category = get_term_by('id', $selected_category_id, 'product_cat');
-    if ($category) {
-        $category_name = $category->name;
-        echo "<h2>$category_name</h2>";
-    }
+    $category_name = $commerce_category->name;
+    echo "<h2>$category_name</h2>";
 
     // Output recent products
     $args = array(
@@ -91,14 +91,10 @@ function render_commerce_category_block($block) {
         echo "</ul>";
 
         // Output "more" link
-        if ($category) {
-            $category_link = get_term_link($category);
-            echo "<a class='more-link' href='$category_link'>More $category_name</a>";
-        }
+        $category_link = get_term_link($commerce_category);
+        echo "<a class='more-link' href='$category_link'>More $category_name</a>";
     }
     wp_reset_postdata();
 
     echo "</div>";
 }
-
-

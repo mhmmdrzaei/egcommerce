@@ -1,0 +1,14 @@
+{
+    "apiVersion": 2,
+    "name": "recent-posts-block",
+    "title": "Recent Posts Block",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "description": "Display the two most recent posts that are not tagged as 'featured' with a 'More Updates' button.",
+    "supports": {
+      "align": ["wide", "full"]
+    },
+    "attributes": {},
+    "render_callback": "render_recent_posts_block"
+  }
+  

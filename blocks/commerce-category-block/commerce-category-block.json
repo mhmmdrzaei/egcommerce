@@ -1,41 +1,22 @@
 {
-    "apiVersion": 2,
-    "name": "commerce-category-block",
-    "title": "Commerce Category Block",
-    "category": "woocommerce",
-    "icon": "grid-view",
-    "description": "Display recent products from a selected category with customizable background and highlight colors.",
-    "supports": {
-      "align": ["wide", "full"]
-    },
-    "attributes": {
-      "commerce_category_container": {
-        "type": "object",
-        "description": "Commerce Category Container",
-        "fields": {
-          "commerce_category": {
-            "type": "taxonomy",
-            "label": "Commerce Category",
-            "required": true,
-            "multiple": false,
-            "post_type": ["product_cat"],
-            "allow_null": true
-          },
-          "background_colour": {
-            "type": "color",
-            "label": "Background Colour",
-            "required": true,
-            "default": "#ffffff"
-          },
-          "highlight_colour": {
-            "type": "color",
-            "label": "Highlight Colour",
-            "required": true,
-            "default": "#ffffff"
-          }
-        }
-      }
-    },
-    "render_callback": "render_commerce_category_block"
-  }
-  
+  "apiVersion": 2,
+  "name": "commerce-category-block",
+  "title": "Commerce Category Block",
+  "category": "woocommerce",
+  "icon": "grid-view",
+  "description": "Display recent products from a selected category with customizable background and highlight colors.",
+  "supports": {
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "commerce_category": {
+      "type": "taxonomy",
+      "label": "Commerce Category",
+      "required": true,
+      "multiple": false,
+      "post_type": ["product_cat"],
+      "allow_null": true
+    }
+  },
+  "render_callback": "render_commerce_category_block"
+}
