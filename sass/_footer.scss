@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    flex-flow: wrap;
+    background: black;
+    color: white;
+    .copyright {
+        width: 100%;
+    }
+}

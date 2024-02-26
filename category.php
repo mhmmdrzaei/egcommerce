@@ -10,6 +10,7 @@
     			echo '' . $category_description . '';
     	   get_template_part( 'loop', 'category' );
         ?>
+        test
 
     </div> <!-- /.content -->
 

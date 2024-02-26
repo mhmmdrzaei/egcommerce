@@ -16,7 +16,9 @@
 <header>
   <main class="headerContainer">
     <section class="title">
+    <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <h1><?php bloginfo( 'name' ); ?> </h1>
+    </a>
       <section class="titledescription">
       <?php bloginfo( 'description' ); ?> 
       </section>

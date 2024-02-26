@@ -1,15 +1,25 @@
 <?php get_header(); ?>
 <section class="container">
 <h2><?php the_title(); ?></h2>
-<section class="page-nav">
-  <p><a href="/updates">Updates</a> >> <?php the_title(); ?></p> 
-
-</section>
-
-
-</section>
-
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<section class="page-nav">
+  <p>  <?php
+$product_categories = wc_get_product_category_list( $product->get_id(), ', ' );
+
+if ( $product_categories ) {
+    echo '<div class="product-categories">' . $product_categories . '</div>';
+}
+?>>> <?php the_title(); ?></p> 
+
+
+
+
+</section>
+
+
+</section>
+
+
 <section class="contentContainerSingle">
     <?php if (has_post_thumbnail()): ?>
         <div class="post-thumbnail">
@@ -17,6 +27,8 @@
         </div>
     <?php endif; ?>
     <?php the_content(); ?>
+
+
 
 </section>
 
