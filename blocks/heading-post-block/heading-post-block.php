@@ -26,13 +26,22 @@ function render_heading_post_block($block) {
 ?>
 
 <div class="heading-post-block">
+<div class='container'>
     <a href="<?php echo esc_url($post_permalink); ?>">
-        <img src="<?php echo esc_url($post_featured_image); ?>" alt="<?php echo esc_attr($post_title); ?>">
+         <figure>
+             <img src="<?php echo esc_url($post_featured_image); ?>" alt="<?php echo esc_attr($post_title); ?>">
+        </figure>
+        <section class="heading-post-content">
         <h2><?php echo esc_html($post_title); ?></h2>
         <p><?php echo esc_html($post_excerpt); ?></p>
-        <a class="btn-more" href="<?php echo esc_url($post_permalink); ?>">Read More</a>
+        <button class="btn-more" href="<?php echo esc_url($post_permalink); ?>">Read More</button>
+
+        </section>
+        
+
     </a>
 </div>
+ </div>
 
 <?php
     endif;

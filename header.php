@@ -13,8 +13,8 @@
 
 <body <?php body_class(); ?>>
 
-<header>
-  <main class="headerContainer">
+<header class="frontHeader">
+  <main class="headerContainer container">
     <section class="title">
     <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <h1><?php bloginfo( 'name' ); ?> </h1>
@@ -31,6 +31,7 @@
          <div id="hamburger-menu"><span></span><span></span><span></span></div>
          <!-- hamburger-menu -->
       </div>
+      <section class="accessHeaderContainer">
       <section class="accessMenuCover" aria-label="Accessibility menu container">
                 <button class="access" aria-label="Accessibility menu, here you can adjust font size or desaturate page">Accessibility</button>
                 <section class="accessMenu">
@@ -48,11 +49,15 @@
                 </section>
         </section>
         <section class="commercecontainer">
-        <?php wp_nav_menu( array(
-        'container' => false,
-        'theme_location' => 'commerce'
-      )); ?>
+            <?php wp_nav_menu( array(
+            'container' => false,
+            'theme_location' => 'commerce'
+          )); ?>
+          <?php require('searchform.php');?>
         </section>
+
+      </section>
+      
   </main>
 
 </header><!--/.header-->

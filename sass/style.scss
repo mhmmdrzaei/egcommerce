@@ -31,6 +31,8 @@ Emily Gove Commerce WordPress Theme, (C) 2024 Mohammad Rezaei
 Default Styling
 ====================================
 */
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 
 
 
@@ -45,22 +47,48 @@ img {
 	height: auto;
 }
 
+
+.figtree, p {
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:400;
+    font-style: normal;
+  }
+  
+  
+
 body {
 
 	@include fontSize(9);
+    background: #C1E5F8;
+    @extend .figtree;
 	
 }
+
+.caprasimo-regular, h1, h2, h2, h4 {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 .flex {
 	display: flex;
 	flex-flow: row wrap;
 }
-
 main {
-	max-width: 1400px;
-	margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
 
 }
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px 10px;
+
+
+}
+
 
 .videoContainer { 
     position: relative; 
@@ -91,4 +119,135 @@ main {
 // Fixes potential theme css conflict.
 .acf-map img {
    max-width: inherit !important;
+}
+
+/// HEADER
+.frontHeader {
+     .headerContainer {
+        @extend .flex;
+        justify-content: space-between;
+     }
+     #menu-header-menu {
+        @extend .flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .sub-menu {
+        @extend .flex;
+            list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+     }
+     #menu-header-menu li > ul.sub-menu {
+        display: none;
+      }
+      
+      #menu-header-menu li:hover > ul.sub-menu,
+      #menu-header-menu li:hover ul.sub-menu li > ul.sub-menu {
+        display: block;
+      }
+      
+}
+
+
+//ACCESS MENU
+.accessMenu {
+    display: none;
+}
+
+
+
+// BACKGROUND DIV CAT
+.commerce-category-block {
+    position: relative;
+    width: 100%;
+    min-height: 200px; 
+    
+	margin: 0 auto;
+    .border {
+        content: "";
+        position: absolute;
+        top: -75px;
+        left: -0%; 
+        width: 100%; 
+        height: 70px;
+        background-color: yellow; 
+        z-index: -1;
+    clip-path: polygon(-3% -3%, 112% 109%, 16% 100%);
+        
+    }
+   
+}
+
+
+.commerce-category-block::before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -0%; 
+    width: 100%; 
+    height: 70px;
+    background-color: inherit; 
+    clip-path: polygon(0 0, 103% 100%, 0% 100%); 
+}
+
+.commerce-category-block::after {
+    content: "";
+    position: absolute;
+    bottom:-70px;
+    left: 0%; 
+    width: 100%; 
+    height: 71px;
+    background-color: inherit; 
+    clip-path: polygon(103% 0, 0% 100%, 0% 0%); 
+}
+
+//COMMERCE OVERRWITE
+.product_meta {
+    display: none;
+}
+.woocommerce-page div.product .woocommerce-tabs {
+    clear: right;
+}
+.woocommerce table.shop_attributes {
+    width: auto;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs  {
+    min-width: 320px;
+}
+.related {
+    clear: both;
+}
+.woocommerce span.onsale {
+    content: 'test';
+}
+.woocommerce div.product .woocommerce-tabs .panel {
+    h2 {
+        display: none;
+    }
+}
+.woocommerce div.product div.images.woocommerce-product-gallery {
+    margin-right: 5%;
+}
+
+//Heading container 
+.heading-post-block {
+    .container {
+        a {
+            @extend .flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 30px;
+            figure {
+                margin: 0 auto;
+                img {
+                    max-height: 340px;
+                }
+            }
+            .heading-post-content {
+                width: 40%;
+            }
+        }
+    }
 }

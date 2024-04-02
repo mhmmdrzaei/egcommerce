@@ -26,10 +26,11 @@ function render_commerce_category_block($block) {
     $highlight_color = get_term_meta($selected_category_id, 'highlight_colour_cat', true);
 
     // Output background and highlight colors
-    $style = "style='background-color: $background_color; border-top: 4px solid $highlight_color;'";
+    $style = "style='background-color: $background_color'";
+    $styleTop = "style='background-colour: $highlight_color;'";
 
     // Output block content
-    echo "<div class='commerce-category-block' $style>";
+    echo "<div class='commerce-category-block' $style><div class='border' $styleTop></div><div class='container'>";
 
     // Output category name
     $category_name = $commerce_category->name;
@@ -41,7 +42,7 @@ function render_commerce_category_block($block) {
         'post_type' => 'product',
         'tax_query' => array(
             array(
-                'taxonomy' => 'product_cat',
+                'taxonomy' => 'site-category',
                 'field' => 'term_id',
                 'terms' => $selected_category_id
             )
@@ -96,5 +97,5 @@ function render_commerce_category_block($block) {
     }
     wp_reset_postdata();
 
-    echo "</div>";
+    echo "</div></div>";
 }
