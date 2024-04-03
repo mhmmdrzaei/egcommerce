@@ -120,6 +120,40 @@ $(document).ready(function(){
         var map = initMap( $(this) );
     });
 });
+
+
+    $('.commerce-category-block .product-list').each(function() {
+        var $carousel = $(this);
+        var $items = $carousel.find('.product-item');
+        var numItems = $items.length;
+        var itemsToShow = 3;
+        var currentItem = 0;
+
+        function updateNavigation() {
+            $carousel.find('.prev').toggle(currentItem > 0);
+            $carousel.find('.next').toggle(currentItem < numItems - itemsToShow);
+        }
+
+        updateNavigation();
+
+        $carousel.find('.prev').click(function() {
+            if (currentItem > 0) {
+                currentItem--;
+                $carousel.animate({ scrollLeft: currentItem * $items.outerWidth() });
+                updateNavigation();
+            }
+        });
+
+        $carousel.find('.next').click(function() {
+            if (currentItem < numItems - itemsToShow) {
+                currentItem++;
+                $carousel.animate({ scrollLeft: currentItem * $items.outerWidth() });
+                updateNavigation();
+            }
+        });
+    });
+
+    
 });
 
 

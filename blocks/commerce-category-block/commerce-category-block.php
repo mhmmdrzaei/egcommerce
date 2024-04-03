@@ -20,6 +20,7 @@ function render_commerce_category_block($block) {
     // Retrieve field values
     $commerce_category = get_field('commerce_category');
     $selected_category_id = $commerce_category; //
+    $category = get_term($selected_category_id);
 
     // Retrieve custom category colors
     $background_color = get_term_meta($selected_category_id, 'background_colour_cat', true);
@@ -27,15 +28,14 @@ function render_commerce_category_block($block) {
 
     // Output background and highlight colors
     $style = "style='background-color: $background_color'";
-    $styleTop = "style='background-colour: $highlight_color;'";
+    $styleTop = "style='background-color: $highlight_color;'";
 
     // Output block content
-    echo "<div class='commerce-category-block' $style><div class='border' $styleTop></div><div class='container'>";
+    echo "<div class='commerce-category-block' $styleTop><div class='border' $style></div><div class='container'>";
 
     // Output category name
-    $category_name = $commerce_category->name;
+    $category_name = $category->name;
     echo "<h2>$category_name</h2>";
-
     // Output recent products
     $args = array(
         'posts_per_page' => 9,
@@ -69,9 +69,32 @@ function render_commerce_category_block($block) {
             ?>
             <li class="product-item">
             <a href="<?php echo $product_link; ?>">
-                <?php if ($product_image): ?>
-                    <div class="product-image"><?php echo $product_image; ?></div>
-                <?php endif; ?>
+
+            <?php if ($product_image): ?>
+    <div class="product-image">
+        <?php echo $product_image; ?>
+    </div>
+<?php else: ?>
+    <div class="product-image">
+        <?php
+        global $product;
+
+        if ( $product ) {
+            $post_thumbnail_id = $product->get_image_id();
+        }
+
+        if ( $post_thumbnail_id ) {
+            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+        } else {
+            $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
+            $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
+            $html .= '</div>';
+        }
+
+        echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+        ?>
+    </div>
+<?php endif; ?>
 
                 <?php
                 if (!empty($product_gallery_ids)) {
@@ -94,6 +117,7 @@ function render_commerce_category_block($block) {
         // Output "more" link
         $category_link = get_term_link($commerce_category);
         echo "<a class='more-link' href='$category_link'>More $category_name</a>";
+        
     }
     wp_reset_postdata();
 

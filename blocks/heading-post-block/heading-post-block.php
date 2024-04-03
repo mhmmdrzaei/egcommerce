@@ -34,7 +34,7 @@ function render_heading_post_block($block) {
         <section class="heading-post-content">
         <h2><?php echo esc_html($post_title); ?></h2>
         <p><?php echo esc_html($post_excerpt); ?></p>
-        <button class="btn-more" href="<?php echo esc_url($post_permalink); ?>">Read More</button>
+        <button class="btn-more" href="<?php echo esc_url($post_permalink); ?>">More</button>
 
         </section>
         
