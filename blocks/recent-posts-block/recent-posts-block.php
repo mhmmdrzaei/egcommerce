@@ -17,7 +17,7 @@ add_action('acf/init', 'register_recent_posts_block');
 // Render Recent Posts Block
 function render_recent_posts_block($block) {
     // Output block content
-    echo "<div class='recent-posts-block'>";
+    echo "<div class='recent-posts-block'><div class='container'>";
 
     // Output block title
     echo "<h2>Shop updates</h2>";
@@ -43,13 +43,25 @@ function render_recent_posts_block($block) {
             ?>
             <li class="post-item">
                 <?php if (has_post_thumbnail()): ?>
-                    <div class="post-thumbnail">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+                    <figure class="post-thumbnail">
+                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                </figure>
+                    <div class="postContentHalf">
+                        <h3><?php the_title(); ?></a></h3>
+                        
+                        <?php the_excerpt(); ?>
+                        <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
                     </div>
+                    <?php else: ?>
+                        <div class="postContentFull">
+                            <h3><?php the_title(); ?></a></h3>
+                            
+                            <?php the_excerpt(); ?>
+                            <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+                        </div>
                 <?php endif; ?>
-                <h3><?php the_title(); ?></a></h3>
-                <p><?php the_excerpt(); ?></p>
-                <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+               
+
             </li>
             <?php
         }
@@ -61,7 +73,7 @@ function render_recent_posts_block($block) {
 
     // Output "More Updates" button
     $updates_page_url = get_permalink(get_option('page_for_posts'));
-    echo "<a href='$updates_page_url' class='more-updates-btn'>More Updates</a>";
+    echo "<a href='$updates_page_url' class='more-updates-btn'>More Updates ></a>";
 
-    echo "</div>";
+    echo "</div></div>";
 }

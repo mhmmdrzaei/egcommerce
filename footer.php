@@ -1,5 +1,5 @@
 <footer>
-
+<div class="conebackground"></div>
 
 <?php
 if( get_field('footer_with_physical_location_', 'options') ) {

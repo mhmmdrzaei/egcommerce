@@ -7,3 +7,11 @@ footer {
         width: 100%;
     }
 }
+.conebackground {
+    background: url('images/cone.png');
+    width: 100%;
+    background-repeat: repeat-x;
+    position: relative;
+    top: -110px;
+    height: 148px;
+}

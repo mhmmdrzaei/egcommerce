@@ -91,9 +91,12 @@ main {
 }
 
 .container {
-    max-width: 1500px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
+    h3 {
+        @extend .caprasimo-regular;
+    }
 
 
 }
@@ -185,7 +188,7 @@ main {
     }
     .border {
         width: 100%;
-        height: 120vh;
+        height: 100%;
         position: absolute;
         top: 11px;
         clip-path: polygon(100% 0,100% 100%,0 90%,0 10%)
@@ -354,10 +357,50 @@ main {
     background-color: #F09A1C;
     content: "";
     width: 100%;
-    height: 360px;
-    padding:142px 0;
+    height: 50%;
     position: absolute;
-    top: 26%;
+    top: 20%;
+}
+
+// RECENT POSTS HOME
+.recent-posts-block {
+    padding: 20px 0 110px 0;
+    margin-top: -7%;
+    background: #00A3FF;
+    .container {
+        color: white;
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+            width: 100%;
+        }
+        .post-list {
+            @extend .flex;
+            list-style: none;
+            justify-content: space-between;
+            width: 83%;
+            padding: 0;
+            li {
+                width: 48%;
+                @extend .flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                h3 {
+                    margin: 0 0 10px 0;
+                }
+                .post-thumbnail {
+                    width: 40%;
+                }
+                .postContentHalf {
+                    width: 57%;
+                }
+                .postContentFull {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 // buttons 
@@ -369,4 +412,21 @@ main {
      padding: 7px 20px;
      box-shadow: -5px 5px 0 black;
      @extend .figtree;
+}
+
+.more-post-btn {
+    @extend .btn-more;
+    text-decoration: none;
+    float: right;
+    margin-top: 20px;
+}
+.more-updates-btn {
+    color: white;
+    @include fontSize(15);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    width: 15%;
+
 }
