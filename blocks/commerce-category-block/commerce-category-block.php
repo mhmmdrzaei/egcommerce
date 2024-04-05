@@ -106,9 +106,13 @@ function render_commerce_category_block($block) {
                 }
                 ?>
                 </a>
-                <h3><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h3>
+                <section class="product_info">
+                <h4><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h4>
             
-                <a href="<?php echo $add_to_cart_url; ?>" class="add-to-cart-btn">Add to Cart</a>
+            <a href="<?php echo $add_to_cart_url; ?>" class="add-to-cart-btn">Add to Cart</a>
+
+                </section>
+
             </li>
             <?php
         }

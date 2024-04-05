@@ -1,5 +1,5 @@
 <?php get_header();  ?>
-<main class="singlePage">
+<main class="singlePage container">
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
   <section class="pageContent">
@@ -25,11 +25,24 @@ if (is_product_category()) {
 else {
   echo '<h1>';
   the_title();
-  echo '</h1>';
-  echo '<section class="page_content_page">';
-  
-  the_content(); 
-}
+  echo '</h1>';?>
+  <?php if (has_post_thumbnail()): ?>
+    <div class="post-thumbnail">
+        <?php the_post_thumbnail('large'); ?>
+    </div>
+    <div class="page_content_page_half">
+<?php the_content(); ?>
+
+</div>
+<?php else : ?>
+    <div class="page_content_page_full">
+<?php the_content(); ?>
+
+</div>
+
+<?php endif; ?>
+
+<?php }
 ?>
 </section>
 

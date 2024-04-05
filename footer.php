@@ -1,6 +1,6 @@
 <footer>
 <div class="conebackground"></div>
-
+<div class="container footerContainer">
 <?php
 if( get_field('footer_with_physical_location_', 'options') ) {
    
@@ -17,6 +17,7 @@ if( $location ): ?>
     <?php echo esc_html($location['address']);
      echo get_field('gallery_hours','options');
     ?>
+    <a href="mailto:<?php echo get_field('site_email','options')?>"><h3><?php echo get_field('site_email','options')?></h3></a>
 
     
 
@@ -44,7 +45,7 @@ if( !empty( $image ) ):
 
 } else { ?>
     <div class="email">
-        <a href="mailto:<?php echo get_field('site_email','options')?>"><?php echo get_field('site_email','options')?></a>
+        <a href="mailto:<?php echo get_field('site_email','options')?>"><h3><?php echo get_field('site_email','options')?></h3></a>
     </div>
     <?php 
     $image = get_field('footer_logo', 'options');
@@ -72,6 +73,10 @@ if( !empty( $image ) ):
 &copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
 
 </p>
+
+</div>
+
+
 
 
 </footer>

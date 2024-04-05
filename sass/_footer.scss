@@ -1,17 +1,57 @@
 footer {
-    display: flex;
-    flex-flow: wrap;
+
+    position: relative;
     background: black;
     color: white;
+    .footerContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+        align-items: flex-end;
+    }
+    .email {
+        width: 33%;
+    }
+    a {
+        color: white !important;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:visited {
+            color: white !important;
+        }
+    }
     .copyright {
         width: 100%;
+        text-align: center;
+        margin-top: -26px;
+    }
+    .footerlogo {
+        max-width: 200px;
+        margin-bottom: 20px;
+        width: 33%;
+    }
+    #menu-footer-menu {
+        list-style: none;
+        width: 33%;
+        padding: 0;
+        columns: 2;
+        column-gap: 30px;
+        @extend h3;
+        text-transform: uppercase;
+        li {
+            padding-top: 10px;
+            text-align: right;
+        }
+
     }
 }
 .conebackground {
     background: url('images/cone.png');
     width: 100%;
     background-repeat: repeat-x;
-    position: relative;
+    position: absolute;
     top: -110px;
     height: 148px;
 }

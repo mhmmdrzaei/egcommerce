@@ -18,18 +18,28 @@
 
 
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<?php if (has_post_thumbnail()): ?>
-				<div class="post-thumbnail">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
-				</div>
-			<?php endif; ?>
-			<h3><?php the_title(); ?></a></h3>
-			<p><?php the_excerpt(); ?></p>
-			<a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
-	
+<li class="post-item">
+                <?php if (has_post_thumbnail()): ?>
+                    <figure class="post-thumbnail">
+                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
+                </figure>
+                    <div class="postContentHalf">
+                        <h3><?php the_title(); ?></a></h3>
+                        
+                        <?php the_excerpt(); ?>
+                        <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+                    </div>
+                    <?php else: ?>
+                        <div class="postContentFull">
+                            <h3><?php the_title(); ?></a></h3>
+                            
+                            <?php the_excerpt(); ?>
+                            <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+                        </div>
+                <?php endif; ?>
+               
 
-		</article><!-- #post-## -->
+            </li>
 
 
 <?php endwhile; // End the loop. Whew. ?>
