@@ -122,36 +122,59 @@ $(document).ready(function(){
 });
 
 
-    $('.commerce-category-block .product-list').each(function() {
-        var $carousel = $(this);
-        var $items = $carousel.find('.product-item');
-        var numItems = $items.length;
-        var itemsToShow = 3;
-        var currentItem = 0;
+$('.commerce-category-block').each(function() {
+    var $block = $(this);
+    var $productList = $block.find('.product-list');
+    var slideWidth = ($productList.find('.product-item').outerWidth(true) * 
+    3) ; // Width of 3 items
+    var slideIndex = 0;
+    var totalSlides = Math.ceil($productList.find('.product-item').length / 3); // Calculate total slides
 
-        function updateNavigation() {
-            $carousel.find('.prev').toggle(currentItem > 0);
-            $carousel.find('.next').toggle(currentItem < numItems - itemsToShow);
+    // $block.find('.commerce-carousel').css('overflow-x', 'scroll');
+    // $block.find('.commerce-carousel').width(slideWidth * totalSlides); // Adjust width to fit all slides
+
+    updateButtons();
+
+    function updateButtons() {
+        $block.find('.prev-btn').toggle(slideIndex > 0); // Show previous button if not on first slide
+        $block.find('.next-btn').toggle(slideIndex < totalSlides - 1); // Show next button if not on last slide
+    }
+
+    $block.find('.prev-btn').click(function() {
+        if (slideIndex > 0) {
+            slideIndex--;
+            $productList.animate({
+                left: '+=' + slideWidth
+            });
+            updateButtons();
         }
-
-        updateNavigation();
-
-        $carousel.find('.prev').click(function() {
-            if (currentItem > 0) {
-                currentItem--;
-                $carousel.animate({ scrollLeft: currentItem * $items.outerWidth() });
-                updateNavigation();
-            }
-        });
-
-        $carousel.find('.next').click(function() {
-            if (currentItem < numItems - itemsToShow) {
-                currentItem++;
-                $carousel.animate({ scrollLeft: currentItem * $items.outerWidth() });
-                updateNavigation();
-            }
-        });
     });
+
+    $block.find('.next-btn').click(function() {
+        if (slideIndex < totalSlides - 1) {
+            slideIndex++;
+            $productList.animate({
+                left: '-=' + slideWidth
+            });
+            updateButtons();
+        }
+    });
+
+
+    //
+
+    $('.product-item').hover(
+        function() {
+            $(this).find('.add-to-cart-btn').css('transform', 'translateY(0%)');
+        },
+        function() {
+            $(this).find('.add-to-cart-btn').css('transform', 'translateY(30%)');
+        }
+    );
+});
+
+
+
 
     
 });

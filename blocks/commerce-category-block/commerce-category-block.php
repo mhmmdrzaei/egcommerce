@@ -38,7 +38,7 @@ function render_commerce_category_block($block) {
     echo "<h2>$category_name</h2>";
     // Output recent products
     $args = array(
-        'posts_per_page' => 9,
+        'posts_per_page' => 8,
         'post_type' => 'product',
         'tax_query' => array(
             array(
@@ -56,7 +56,9 @@ function render_commerce_category_block($block) {
     );
     $products = new WP_Query($args);
     if ($products->have_posts()) {
-        echo "<ul class='product-list'>";
+        echo "<div class='prev-btn'>&lt;</div>";
+        echo "<div class='product-container'>";
+        echo "<ul class='product-list commerce-carousel'>";
         while ($products->have_posts()) {
             $products->the_post();
             global $product;
@@ -116,12 +118,15 @@ function render_commerce_category_block($block) {
             </li>
             <?php
         }
-        echo "</ul>";
+        $category_link = get_term_link($commerce_category);
+        echo "<a class='more-link' href='$category_link'>See More $category_name</a>";
+       
+        echo "</ul></div>";
 
         // Output "more" link
-        $category_link = get_term_link($commerce_category);
-        echo "<a class='more-link' href='$category_link'>More $category_name</a>";
-        
+        echo "<div class='next-btn'>&gt;</div>";
+
+
     }
     wp_reset_postdata();
 

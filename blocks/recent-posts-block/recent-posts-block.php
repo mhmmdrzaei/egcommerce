@@ -73,7 +73,7 @@ function render_recent_posts_block($block) {
 
     // Output "More Updates" button
     $updates_page_url = get_permalink(get_option('page_for_posts'));
-    echo "<a href='$updates_page_url' class='more-updates-btn'>More Updates ></a>";
+    echo "<a href='$updates_page_url' class='more-updates-btn'>More Updates</a>";
 
     echo "</div></div>";
 }
