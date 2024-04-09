@@ -1,19 +1,12 @@
 <?php get_header(); ?>
-
-<main>
-  <section class="container">
-    
-    
+   
   <?php
 
   
 // Get the current product category ID
 $category_id = get_queried_object_id();
-
-$selected_category_id = $category_name; //
-$category = get_term($selected_category_id);
-print_r($category);
-$category_name = $category->name;
+$obj = get_queried_object();
+$category_name = $obj->name;
 
 
 // Retrieve custom field values
@@ -37,16 +30,18 @@ $args = array(
             'value' => 'instock'
         )
     )
-);
+);?>
+
+<?php
 
 $products = new WP_Query($args);
 
 if ($products->have_posts()) :
     // Output category background color
-    echo "<div style='background-color: $background_color;'>";
+    echo "<main style='background-color: $background_color;'>";
 
     // Output category highlight color
-    echo "<div style='background-color: $highlight_color;'>";
+    echo "<div style='background-color: $highlight_color;'></div><div class='container'>";
     echo "<h2>$category_name</h2>";
   
     // Output container for products

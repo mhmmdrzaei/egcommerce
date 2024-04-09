@@ -278,12 +278,15 @@ main {
     color: white;
     z-index: 2;
     width: 2%;
+    position: absolute;
 }
 .prev-btn {
     content: url('images/<.png');
+    left: 10px;
 }
 .next-btn {
     content: url('images/>.png');
+    right: 10px;
 }
 
    
@@ -544,7 +547,7 @@ main {
     border: 1px solid black;
     background: white;
     &:hover {
-        box-shadow: -5px 5px 0 black;
+        box-shadow: -2px 2px 0 black;
     }
     .product_info {
         padding: 10px 10px 40px 10px;
@@ -613,4 +616,32 @@ position: absolute;
 top: 45px;
 
 
+}
+
+// product category page
+.product-container {
+    margin-bottom: 140px;
+    @extend .flex;
+
+    li {
+        width: calc(25% - 20px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        .add-to-cart-btn {
+            display: none; /* Initially hide the button */
+            position: absolute; /* Position it absolutely for the animation */
+            
+        }
+        &:hover {
+            .add-to-cart-btn {
+                display: block; /* Show the button on hover */
+                bottom: 15px;
+            right: 10px;
+            transition: transform 1s ease; /* Add transition for smooth animation */
+            }
+        }
+    }
+    padding: 0;
+    list-style: none;
 }
