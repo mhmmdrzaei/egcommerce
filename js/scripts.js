@@ -161,7 +161,7 @@ $('.commerce-category-block').each(function() {
     });
 
 
-    //
+    //add to cart button
 
     $('.product-item').hover(
         function() {

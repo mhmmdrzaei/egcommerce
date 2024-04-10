@@ -20,10 +20,16 @@
       <h1><?php bloginfo( 'name' ); ?> </h1>
     </a>
       <section class="titledescription">
-      <?php bloginfo( 'description' ); ?> 
+        <section class="titleDescContainer">
+        <?php bloginfo( 'description' ); ?> 
+
+        </section>
+
       </section>
     </section>
-      <?php wp_nav_menu( array(
+    <section class="headerMenu">
+    <div class="menu-border"></div>
+    <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'primary'
       )); ?>
@@ -31,6 +37,10 @@
          <div id="hamburger-menu"><span></span><span></span><span></span></div>
          <!-- hamburger-menu -->
       </div>
+
+
+    </section>
+
       <section class="accessHeaderContainer">
       <section class="accessMenuCover" aria-label="Accessibility menu container">
                 <button class="access" aria-label="Accessibility menu, here you can adjust font size or desaturate page">Accessibility</button>
