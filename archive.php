@@ -22,7 +22,7 @@ $catalog_orderby_options = array(
 $orderby = isset($_GET['orderby']) && array_key_exists($_GET['orderby'], $catalog_orderby_options) ? $_GET['orderby'] : 'menu_order';
 
 $args = array(
-    'posts_per_page' => -1, // Display 10 entries per page
+    'posts_per_page' => -1,
 
     'post_type' => 'product',
     'tax_query' => array(
@@ -156,10 +156,10 @@ $products = new WP_Query($args);
             <?php endif; ?>
 
         </ul>
-
         
     </div>
 
+  
         
 </main>
 

@@ -88,6 +88,9 @@ h1, h2 {
   @include fontSize(25);
   text-shadow: -3px 3px 0px black;
 }
+h2 {
+    text-shadow: -1px 1px 1px black;
+}
 h4 {
     @extend .figtree;
 }
@@ -448,13 +451,13 @@ main {
     }
 }
 .commerce-category-block:nth-child(3){
-    margin-top: -7%;
+    margin-top: -8%;
 }
 .commerce-category-block:nth-child(4){
-    margin-top: -14%;
+    margin-top: -16%;
 }
 .commerce-category-block:nth-child(5){
-    margin-top: -21%;
+    margin-top: -24%;
 }
 
 
@@ -480,9 +483,6 @@ main {
 .related {
     clear: both;
 }
-.woocommerce span.onsale {
-    content: 'test';
-}
 .woocommerce div.product .woocommerce-tabs .panel {
     h2 {
         display: none;
@@ -491,7 +491,94 @@ main {
 .woocommerce div.product div.images.woocommerce-product-gallery {
     margin-right: 2%;
 }
+.type-product {
+    background: white;
+    border: 1px solid black;
+    min-height: 402px;
+    h2 {
+        @extend .figtree;
+        text-shadow: none;
+        width: 90%;
+        margin: 0 auto !important;
+    }
+    .price {
+        color: red !important;
+        width: 90%;
+        margin: 0 auto;
 
+    }
+    .button {
+        @extend .btn-more;
+        color: red !important;
+        float: right;
+        margin: .5em .5em 1em 0em !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        right:0 !important;
+        
+    }
+    .onsale {
+        font-family: 'shlopregular', serif;
+        background: url('images/sale.png');
+        background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0% !important;
+    background-color: transparent !important;
+    }
+}
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
+    position: absolute !important;
+}
+.single-product-container {
+    .images {
+        width: 50%;
+    }
+    .summary {
+        width:49%;
+        .price  {
+            color: red !important;
+        }
+    }
+    background: white;
+    border: 1px solid;
+    box-shadow: -5px 5px 0 black;
+    @extend .flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.wc-tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-bottom: 0;
+    li {
+        border: 1px solid black;
+        margin-left: -1px;
+        padding: 10px 20px;
+        font-weight: 700;
+        letter-spacing: 1.2;
+        a {
+            outline: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        
+    }
+    li.active {
+        background: #FAFF00;
+    }
+}
+.woocommerce-Tabs-panel  {
+    padding: 10px;
+    margin-left: -1px;
+    margin-top: -1px;
+    border: 1px solid black;
+}
+.related_prodcuts {
+    margin-bottom: 140px;
+}
 //Heading container 
 .heading-post-block {
     clip-path: polygon(0% 5%, 30% 20%, 70% 5%, 100% 10%, 100% 90%, 70% 85%, 30% 95%, 0% 80%);
@@ -538,6 +625,16 @@ main {
         }
     }
 }
+.woocommerce img, .woocommerce-page img {
+    width: 100%;
+}
+.woocommerce-product-gallery__trigger {
+    position: absolute;
+    z-index: 2; 
+    &:hover {
+        text-decoration: none;
+    }
+}
 .heading-post-block::before{
     clip-path: polygon(0% 5%, 30% 20%, 70% 5%, 100% 10%, 100% 90%, 70% 85%, 30% 95%, 0% 80%);
     padding: 141px 0;
@@ -553,7 +650,7 @@ main {
 // RECENT POSTS HOME
 .recent-posts-block {
     padding: 20px 0 130px 0;
-    margin-top: -7%;
+    margin-top: -8%;
     background: #00A3FF;
     .container {
         color: white;
@@ -598,13 +695,14 @@ main {
 }
 
 // buttons 
-.btn-more {
-     background: #FAFF00;
-     border: 1px solid black;
-     text-transform: uppercase;
-     font-weight: 900;
-     padding: 7px 20px;
-     box-shadow: -5px 5px 0 black;
+.btn-more, .single_add_to_cart_button{
+     background: #FAFF00 !important;
+     border: 1px solid black !important;
+     text-transform: uppercase !important;
+     font-weight: 900 !important;
+    //  padding: 7px 20px !important;
+     box-shadow: -5px 5px 0 black !important;
+     border-radius: 0px !important;
      @extend .figtree;
      &:hover {
         text-decoration: none !important;
@@ -636,10 +734,10 @@ main {
      }
 
 }
-.add-to-cart-btn {
+.add-to-cart-btn, .single_add_to_cart_button {
     @extend .btn-more;
     color: red !important;
-    padding: 7px 12px;
+    padding: 7px 12px !important;
     float: right;
 }
 
@@ -705,7 +803,7 @@ clip-path: polygon(100% 0%,
     h1 {
         transform: rotate(-2.7deg);
         position: absolute;
-        top: 3.5% ;
+        top: 35px ;
     }
     .content {
         color: white;
@@ -782,7 +880,7 @@ top: 60px;
     h2 {
         transform: rotate(-3.7deg);
         position: absolute;
-        top: 2% ;
+        top: 35px ;
         left: 20px;
     }
     .woocomControls {
