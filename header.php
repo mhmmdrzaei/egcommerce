@@ -29,6 +29,7 @@
     </section>
     <section class="headerMenu">
     <div class="menu-border"></div>
+    <div class="menu-border-2"></div>
     <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'primary'

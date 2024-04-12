@@ -35,7 +35,8 @@ function render_commerce_category_block($block) {
 
     // Output category name
     $category_name = $category->name;
-    echo "<h2>$category_name</h2>";
+    $category_link = get_term_link($commerce_category);
+    echo "<h2><a href='$category_link'>$category_name</a></h2>";
     // Output recent products
     $args = array(
         'posts_per_page' => 8,
@@ -118,7 +119,7 @@ function render_commerce_category_block($block) {
             </li>
             <?php
         }
-        $category_link = get_term_link($commerce_category);
+        
         echo "<a class='more-link' href='$category_link'>See More $category_name</a>";
        
         echo "</ul></div>";

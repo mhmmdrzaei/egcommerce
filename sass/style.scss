@@ -80,14 +80,18 @@ body {
     font-weight: 400;
     font-style: normal;
   }
-h1, h2 {
+h1 a, h1, h2, h2 a {
     color: black;
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   @include fontSize(25);
   text-shadow: -3px 3px 0px black;
+  &:hover {
+    text-decoration: none !important;
 }
+}
+
 h2 {
     text-shadow: -1px 1px 1px black;
 }
@@ -108,7 +112,7 @@ main {
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
     h3 {
         @extend .caprasimo-regular;
     }
@@ -184,10 +188,11 @@ main {
      #menu-header-menu {
         @extend .flex;
         list-style: none;
+        position: absolute;
+        width: 100%;
+        top: 25px;
         padding: 0;
         margin: 0;
-        width: 100%;
-        height: 100px;
         align-items: center;
     justify-content: space-around;
     background: #6674F2;
@@ -199,6 +204,7 @@ main {
         -webkit-text-fill-color: #FAFF00; 
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black; 
+        position: relative;
 
         @include fontSize(17);
         a {
@@ -215,17 +221,8 @@ main {
             list-style: none;
         padding: 0;
         margin: 0;
+        position: absolute;
         }
-        clip-path: polygon(0% 20%,
-                  20% 20%,
-                  50% 0%,
-                 80% 20%,
-				100% 20%,
-                  100% 90%,
-                  80% 90%,
-                50% 100%,
-                20% 90%,
-                   0% 90%);
      }
      #menu-header-menu li > ul.sub-menu {
         display: none;
@@ -251,11 +248,30 @@ main {
         20% 90%,
             0% 90%);
             width: 100%;
-            height: 100px;
+            height: 80px;
             position: absolute;
             top: 3px;
             left:-3px;
     }
+    .menu-border-2{
+        content: " ";
+        background: #6674F2;
+        clip-path: polygon(0% 20%,
+            20% 20%,
+            50% 0%,
+            80% 20%,
+            100% 20%,
+            100% 90%,
+            80% 90%,
+            50% 100%,
+            20% 90%,
+                0% 90%);
+                width: 100%;
+                height: 80px;
+                position: absolute;
+                top: 0px;
+                left:0px;
+        }
 .titledescription {
     position: relative;
     height: 30px;
@@ -495,6 +511,9 @@ main {
     background: white;
     border: 1px solid black;
     min-height: 402px;
+    &:hover {
+        box-shadow: -3px 3px 0 black;
+    }
     h2 {
         @extend .figtree;
         text-shadow: none;
@@ -889,22 +908,29 @@ top: 60px;
         justify-content: space-between;
         padding: 0 30px 0 20px;
         align-items: flex-end;
-        .woocommerce-ordering {
-            // width: 100%;
-            // padding-left: calc(100% - 217px);
-            select {
-                background: white;
-                border-radius: 0;
-                border: 1px solid black;
-                padding: 3px 10px;
-                text-transform: uppercase;
-                font-weight: 700;
-            }
-        }
-    }
+       
 
+    }
+    
 
 }
+}
+.woocommerce-ordering {
+    // width: 100%;
+    // padding-left: calc(100% - 217px);
+    select {
+        background: white;
+        border-radius: 0;
+        border: 1px solid black;
+        padding: 3px 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+.page-numbers {
+    background: white;
+
+
 }
 .product-container {
     margin-bottom: 140px;
