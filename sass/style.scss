@@ -190,7 +190,8 @@ main {
         list-style: none;
         position: absolute;
         width: 100%;
-        top: 25px;
+        top: 18px;
+        height: 50px;
         padding: 0;
         margin: 0;
         align-items: center;
@@ -199,12 +200,17 @@ main {
     @extend .caprasimo-regular;
     
     li {
-        text-align: center;
+        text-align: left;
         color: #FAFF00;
         -webkit-text-fill-color: #FAFF00; 
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black; 
         position: relative;
+        height: 50px;
+        display: flex;
+        min-width: 115px;
+        align-items: center;
+        
 
         @include fontSize(17);
         a {
@@ -219,31 +225,31 @@ main {
         .sub-menu {
         list-style: none;
         width: 54vh;
-        height: 300px;
+        min-height: 200px;
+        z-index: 2;
         margin: 0;
         position: absolute;
-        padding: 20px 30px;
+        justify-content: space-around;
+        top: 40px;
+        padding:40px 35px;
         list-style: none;
-        margin-top:19px;
-        background: #00a3ffa1;
-        clip-path:polygon(5% 0%,
-        
-        20% 0px,
-        47% 8px,
-        80% 0px,
-                          95% 0%,
-                         100% 40%,
-                          95% 95%,
-                          50% 100%,
-                           5% 95%,0% 40%
-        );
+        // background: #6674f2d4;
+        clip-path:polygon(5% 0,80% 0,95% 0px,100% 40%,95% 95%,50% 100%,5% 95%,0 40%);
 
         li {
             width: fit-content;
+            height: fit-content;
             .sub-menu {
                 background: transparent;
+                display: block;
+                clip-path: none;
+                width: fit-content;
+                height: fit-content;
+                padding: 0;
+                display: flex;
                 li {
                     // position: absolute;
+                   
                     a {
                         color: white;
                         fill: white;
@@ -256,19 +262,19 @@ main {
             }
         }
         }
-        // .sub-menu::before {
-        //     content: " ";
-        //     position: absolute;
-        //     padding: 20px 30px;
-        //     clip-path:(5% 0, 20% 0, 47% 8px, 82% 0, 95% 0, 100% 40%, 95% 95%, 50% 100%, 5% 95%, 0 40%);
-        //     background: #00A3FF;
-        //     width: 54vh;
-        //     height: 300px;
-        //     z-index: -1;
-        //     top: 0;
-        //     left: 0;
+        .sub-menu::before {
+            content: " ";
+            position: absolute;
+            padding: 40px 35px;
+            clip-path:polygon(5% 0,80% 0,95% 0px,100% 40%,95% 95%,50% 100%,5% 95%,0 40%);
+            background: linear-gradient(180deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 40%);
+            width: 54vh;
+            min-height: 200px;
+            z-index: -1;
+            top: 0;
+            left: 0;
 
-        // }
+        }
      }
      #menu-header-menu li > ul.sub-menu {
         display: none;
@@ -279,8 +285,6 @@ main {
       }
       #menu-header-menu li:hover ul.sub-menu li > ul.sub-menu  {
         display: block;
-        padding: 0;
-        clip-path: none;
       }
       
 }
@@ -598,8 +602,16 @@ main {
     background-color: transparent !important;
     }
 }
-:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
-    position: absolute !important;
+.wc-forward {
+    @extend .add-to-cart-btn;
+}
+.added_to_cart {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+.woocommerce-error, .woocommerce-info, .woocommerce-message  {
+    background-color: white !important;
 }
 .single-product-container {
     .images {
@@ -649,6 +661,21 @@ main {
 }
 .related_prodcuts {
     margin-bottom: 140px;
+}
+#coupon_code {
+    margin: 0 20px;
+    min-height: 40px;
+    min-width: 100px;
+}.woocommerce {
+    padding-top: 20px;
+}
+#place_order {
+    color: black !important;
+}
+input {
+    border-radius: 0;
+    border: 1px solid;
+    min-height: 38px;
 }
 //Heading container 
 .heading-post-block {
@@ -718,6 +745,7 @@ main {
     top: 10px;
 }
 
+
 // RECENT POSTS HOME
 .recent-posts-block {
     padding: 20px 0 130px 0;
@@ -766,7 +794,7 @@ main {
 }
 
 // buttons 
-.btn-more, .single_add_to_cart_button{
+.btn-more, .single_add_to_cart_button, .button{
      background: #FAFF00 !important;
      border: 1px solid black !important;
      text-transform: uppercase !important;
