@@ -152,7 +152,7 @@ main {
 
 .acf-map {
     width: 100%;
-    height: 400px;
+    height: 200px;
     border: #ccc solid 1px;
     margin: 20px 0;
 }
@@ -630,7 +630,7 @@ main {
     justify-content: space-between;
     padding: 20px;
 }
-.wc-tabs {
+.container .wc-tabs {
     list-style: none;
     padding: 0;
     display: flex;
@@ -672,10 +672,11 @@ main {
 #place_order {
     color: black !important;
 }
-input {
+.container input {
     border-radius: 0;
     border: 1px solid;
-    min-height: 38px;
+    min-height: 30px;
+    margin: 10px 0;
 }
 //Heading container 
 .heading-post-block {
@@ -806,6 +807,9 @@ input {
      &:hover {
         text-decoration: none !important;
      }
+}
+.button-primary {
+    color: red !important;
 }
 
 .more-post-btn {

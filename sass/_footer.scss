@@ -55,3 +55,20 @@ footer {
     top: -110px;
     height: 148px;
 }
+.footermap {
+    width: 33%;
+}
+.locationaddress {
+    width: 33%;
+}
+.footerMenu_map {
+    align-self: center;
+    #menu-footer-menu {
+        columns: 1;
+    }
+}
+.logoCopy {
+    .footerlogo {
+        width: 100%;
+    }
+}

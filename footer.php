@@ -22,13 +22,14 @@ if( $location ): ?>
     
 
 </section>
+<section class="footerMenu_map">
 <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'footer'
       )); ?>
 
-
-
+</section>
+<section class="logoCopy">
 <?php 
 $image = get_field('footer_logo', 'options');
 if( !empty( $image ) ): 
@@ -37,6 +38,18 @@ if( !empty( $image ) ):
 <figure class="footerlogo">
 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 </figure>
+<p class="copyright">
+&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
+
+</p>
+
+
+</section>
+
+
+
+
+
 
 <?php endif; ?>
 
@@ -61,18 +74,19 @@ if( !empty( $image ) ):
         'container' => false,
         'theme_location' => 'footer'
       )); 
+    ?>
+    <p class="copyright">
+&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
+
+</p>
 
 
+<?php
 }
 
 ?>
 
 
-
-<p class="copyright">
-&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
-
-</p>
 
 </div>
 
