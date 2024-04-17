@@ -205,30 +205,42 @@ $('.access').on('click',function(){
 
 
 
+// Function to reset font size to its original value
+function resetFontSize() {
+    $('p').css('font-size', '');
+    localStorage.removeItem('FontSize');
+}
 
-// var resetFont = $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size','revert'); 
+// Function to increase font size by 1px
+function increaseFontSize() {
+    var curFontSize = $('p').css('font-size');
+    var newSize = parseInt(curFontSize) + 1;
+    if (newSize <= 25) {
+        $('p').css('font-size', newSize + "px");
+        localStorage.setItem('FontSize', newSize + "px");
+    }
+}
 
-// var curFontSize= localStorage["FontSize"];
-// if (curFontSize){
-//     //set to previously saved fontsize if available
-//      $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', curFontSize);
-// }
+// Function to decrease font size by 1px
+function decreaseFontSize() {
+    var curFontSize = $('p').css('font-size');
+    var newSize = parseInt(curFontSize) - 1;
+    if (newSize >= 15) {
+        $('p').css('font-size', newSize + "px");
+        localStorage.setItem('FontSize', newSize + "px");
+    }
+}
 
-// $(".increaseFont,.decreaseFont").click(function () {
-//     var type = $(this).val();
-//     curFontSize = $('body,h2, h3, h4, h1, a').css('font-size'); 
-//    // if () {
-//     if ((type == 'increase')&& (parseInt(curFontSize) < 25)) {
-//         $('body,h1, h2, h3, h4, a').css('font-size', parseInt(curFontSize) + 1 + "px");
-//          // $('.desaturate, .clearInputs').css('font-size', '.9rem');
+// Check if font size is previously saved and apply it
+var curFontSize = localStorage.getItem('FontSize');
+if (curFontSize) {
+    $('p').css('font-size', curFontSize);
+}
 
-//     } else if((type == 'decrease')&& (parseInt(curFontSize) > 15)) {
-//         $('body, h1, h2, h3, h4, a').css('font-size', parseInt(curFontSize) - 1 + "px");
-//          // $('.desaturate, .clearInputs').css('font-size', '.9rem');
-//     }
-//     localStorage.setItem('FontSize', curFontSize);
-// });
-
+// Click event handlers
+$(".increaseFont").click(increaseFontSize);
+$(".decreaseFont").click(decreaseFontSize);
+$(".clearInputs").click(resetFontSize);
 
 
 if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
@@ -255,8 +267,8 @@ $('.clearInputs').on('click',function(){
 	// $('#fontSizeRange').val('0');
 	// // curFontSizeNew = 15;å
 	// document.getElementById("fontSizeRange").value = curFontSizeNew;
-	localStorage.setItem('FontSize', 'normal');
-	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', 'revert');
+	// localStorage.setItem('FontSize', 'normal');
+	// $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', 'revert');
 
 });
 

@@ -582,6 +582,7 @@ main {
     background: white;
     border: 1px solid black;
     min-height: 402px;
+    padding-bottom: 5% !important;
     &:hover {
         box-shadow: -3px 3px 0 black;
     }
@@ -812,6 +813,7 @@ main {
 // buttons 
 .btn-more, .single_add_to_cart_button, .button{
      background: #FAFF00 !important;
+     max-width: 175px;
      border: 1px solid black !important;
      text-transform: uppercase !important;
      font-weight: 900 !important;
