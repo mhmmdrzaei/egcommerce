@@ -43,35 +43,40 @@
     </section>
 
       <section class="accessHeaderContainer">
-      <section class="accessMenuCover" aria-label="Accessibility menu container">
-                <button class="access" aria-label="Accessibility menu, here you can adjust font size or desaturate page">Accessibility</button>
-                <section class="accessMenu">
-                  <section class="fontSizeIncrease">
-                    <button class="decreaseFont" value="decrease" aria-label="Decrease font size, measure by 1 px"> — </button>
-                    <button class="increaseFont" value="increase" aria-label="Increase font size, measure by 1 px"> + </button>
-                    
-                  </section>
-                  <section class="desaturateMenu" aria-label="Desaturate pages to white with black buttons and links">
-                    <button class="desaturate">Desaturate Page</button>
-                  </section>
-                  <section class="clearselections" aria-label="Clear your inputs and revert to origional styling">
-                    <button class="clearInputs">Clear Inputs</button>
-                  </section>
-                </section>
-        </section>
+      <button class="access" aria-label="Accessibility menu, here you can adjust font size or desaturate page">Accessibility</button>
+
 
         <section class="commercecontainer">
-        <section class="cartnew">
-          <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"> <img src="<?php bloginfo('template_directory'); ?>/images/cart.png" alt="Image of a Shopping Cart">(<?php echo WC()->cart->get_cart_contents_count() ?>)
+        <button class="search_btn">
+          <img src="<?php bloginfo('template_directory'); ?>/images/search.png" alt="magnifying glass to open search panel">
+        </button>
+          <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"> <img src="<?php bloginfo('template_directory'); ?>/images/cart.png" alt="Image of a Shopping Cart"><span><?php echo WC()->cart->get_cart_contents_count() ?></span>
             </a>
 
+        <a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) );?>" class="user_acct"><img src="<?php bloginfo('template_directory'); ?>/images/person.png" alt="icon for user panel"></a>
+
+
+          
         </section>
-            <?php wp_nav_menu( array(
-            'container' => false,
-            'theme_location' => 'commerce'
-          )); ?>
-          <?php require('searchform.php');?>
+        <section class="searchformcontainer">
+        <?php require('searchform.php');?>
         </section>
+        <section class="accessMenuCover" aria-label="Accessibility menu container">
+               
+               <section class="accessMenu">
+                 <section class="fontSizeIncrease">
+                   <button class="decreaseFont" value="decrease" aria-label="Decrease font size, measure by 1 px"> — </button>
+                   <button class="increaseFont" value="increase" aria-label="Increase font size, measure by 1 px"> + </button>
+                   
+                 </section>
+                 <section class="desaturateMenu" aria-label="Desaturate pages to white with black buttons and links">
+                   <button class="desaturate">Desaturate Page</button>
+                 </section>
+                 <section class="clearselections" aria-label="Clear your inputs and revert to origional styling">
+                   <button class="clearInputs">Clear Inputs</button>
+                 </section>
+               </section>
+       </section>
 
       </section>
       

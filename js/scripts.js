@@ -173,6 +173,92 @@ $('.commerce-category-block').each(function() {
     );
 });
 
+//Search button 
+$('.search_btn').click(function(){
+    $('.searchformcontainer').toggle();
+
+});
+// access button
+//Search button 
+$('.search_btn').click(function(){
+    $('.searchformcontainer').toggle();
+
+});
+
+
+//access menu 
+$('.access').on('click',function(){
+	$(this).addClass('isOpen');
+    $('.access::before').css("content", "-")
+	$('.accessMenu').toggle();
+	if ( $('.access').hasClass( "isOpen" ) ) {
+			$(this).on('click',function(){
+				$(this).removeClass('isOpen');
+				window.location.reload();
+			})
+
+			
+		}
+
+});
+
+
+
+
+
+// var resetFont = $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size','revert'); 
+
+// var curFontSize= localStorage["FontSize"];
+// if (curFontSize){
+//     //set to previously saved fontsize if available
+//      $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', curFontSize);
+// }
+
+// $(".increaseFont,.decreaseFont").click(function () {
+//     var type = $(this).val();
+//     curFontSize = $('body,h2, h3, h4, h1, a').css('font-size'); 
+//    // if () {
+//     if ((type == 'increase')&& (parseInt(curFontSize) < 25)) {
+//         $('body,h1, h2, h3, h4, a').css('font-size', parseInt(curFontSize) + 1 + "px");
+//          // $('.desaturate, .clearInputs').css('font-size', '.9rem');
+
+//     } else if((type == 'decrease')&& (parseInt(curFontSize) > 15)) {
+//         $('body, h1, h2, h3, h4, a').css('font-size', parseInt(curFontSize) - 1 + "px");
+//          // $('.desaturate, .clearInputs').css('font-size', '.9rem');
+//     }
+//     localStorage.setItem('FontSize', curFontSize);
+// });
+
+
+
+if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
+   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
+   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor,.fullWSHome,.current-menu-item, .lds-roller div').addClass('blackBack');
+
+  }
+
+
+$('.desaturateMenu').on('click',function(){
+	localStorage.setItem('screenModeSaturateTokenState', 'desaturate');
+	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor, .fullWSHome,.current-menu-item, .lds-roller div ').addClass('blackBack');
+
+
+
+});
+$('.clearInputs').on('click',function(){
+	localStorage.setItem('screenModeSaturateTokenState', 'saturated');
+	// localStorage.setItem('FontSize', normalFontSize);
+	// $("body,h1.pageTitle, h2, h3, h4, h5, h6, a").css("font-size", '.9rem');
+	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu, #menu-header-menu, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select, .gearEachInner h2, .specsAvail, .registerLink').removeClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button ,  #menu-header-menu .current_page_ancestor, .openWSHome, .fullWSHome, .current-menu-item, .lds-roller div').removeClass('blackBack');
+	// $('#fontSizeRange').val('0');
+	// // curFontSizeNew = 15;å
+	// document.getElementById("fontSizeRange").value = curFontSizeNew;
+	localStorage.setItem('FontSize', 'normal');
+	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', 'revert');
+
+});
 
 
 

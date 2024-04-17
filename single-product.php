@@ -30,6 +30,7 @@
 
 
 <?php endwhile; // End the loop. Whew. ?>
+</section>
 
 <?php get_footer(); ?>
 
