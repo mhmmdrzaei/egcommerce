@@ -59,7 +59,13 @@
                   </section>
                 </section>
         </section>
+
         <section class="commercecontainer">
+        <section class="cartnew">
+          <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"> <img src="<?php bloginfo('template_directory'); ?>/images/cart.png" alt="Image of a Shopping Cart">(<?php echo WC()->cart->get_cart_contents_count() ?>)
+            </a>
+
+        </section>
             <?php wp_nav_menu( array(
             'container' => false,
             'theme_location' => 'commerce'
