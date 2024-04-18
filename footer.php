@@ -15,6 +15,7 @@ if( $location ): ?>
 </section>
 <section class="locationaddress">
     <?php echo esc_html($location['address']);
+    echo '<br><br>';
      echo get_field('gallery_hours','options');
     ?>
     <a href="mailto:<?php echo get_field('site_email','options')?>"><h3><?php echo get_field('site_email','options')?></h3></a>
@@ -35,9 +36,9 @@ $image = get_field('footer_logo', 'options');
 if( !empty( $image ) ): 
 ?>
 
-<figure class="footerlogo">
+<div class="footerlogo">
 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-</figure>
+</div>
 <p class="copyright">
 &copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?>
 
@@ -65,9 +66,9 @@ if( !empty( $image ) ):
     if( !empty( $image ) ): 
     ?>
 
-    <figure class="footerlogo">
+    <div class="footerlogo">
     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    </figure>
+    </div>
 
     <?php endif; ?>
     <?php wp_nav_menu( array(

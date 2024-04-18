@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<main>
 <section class="singlePost container">
 <h2><?php the_title(); ?></h2>
 <section class="page-nav">
@@ -30,11 +31,11 @@
 </section>
     </section>
 
+    <?php get_footer(); ?>
 
-
-
+</main
 
 <?php endwhile; // End the loop. Whew. ?>
 
-<?php get_footer(); ?>
+
 

@@ -178,100 +178,102 @@ $('.search_btn').click(function(){
     $('.searchformcontainer').toggle();
 
 });
-// access button
-//Search button 
-$('.search_btn').click(function(){
-    $('.searchformcontainer').toggle();
 
-});
 
 
 //access menu 
 $('.access').on('click',function(){
 	$(this).addClass('isOpen');
-    $('.access::before').css("content", "-")
+    $('.access:before').css("content", "-")
 	$('.accessMenu').toggle();
 	if ( $('.access').hasClass( "isOpen" ) ) {
 			$(this).on('click',function(){
 				$(this).removeClass('isOpen');
-				window.location.reload();
+				
 			})
 
 			
 		}
 
 });
-
-
-
-
-// Function to reset font size to its original value
-function resetFontSize() {
-    $('p').css('font-size', '');
-    localStorage.removeItem('FontSize');
-}
-
-// Function to increase font size by 1px
 function increaseFontSize() {
-    var curFontSize = $('p').css('font-size');
+    var curFontSize = $('p, h4').css('font-size');
     var newSize = parseInt(curFontSize) + 1;
     if (newSize <= 25) {
-        $('p').css('font-size', newSize + "px");
+        $('p, h4').css('font-size', newSize + "px");
         localStorage.setItem('FontSize', newSize + "px");
     }
 }
 
 // Function to decrease font size by 1px
 function decreaseFontSize() {
-    var curFontSize = $('p').css('font-size');
+    var curFontSize = $('p, h4').css('font-size');
     var newSize = parseInt(curFontSize) - 1;
     if (newSize >= 15) {
-        $('p').css('font-size', newSize + "px");
+        $('p, h4').css('font-size', newSize + "px");
         localStorage.setItem('FontSize', newSize + "px");
     }
 }
 
-// Check if font size is previously saved and apply it
+// Function to desaturate items on the page
+function desaturatePage() {
+    localStorage.setItem('screenModeSaturateTokenState', 'desaturate');
+    $('.titledescription, .commercecontainer, .menu-border-2, #menu-header-menu, .border, .recent-posts-block, .sub-menu, .product-cat-page').css('background', 'black');
+}
+
+function smallImage() {
+    localStorage.setItem('screenModeReduceImageSize', 'ImageSize');
+    $('img').css('padding', '10%');
+    $('figure').css('border','none');
+}
+
+// Function to reset font size and desaturation
+function resetPage() {
+    $('p, h4').css('font-size', '');
+    localStorage.removeItem('FontSize');
+    localStorage.removeItem('screenModeSaturateTokenState');
+    localStorage.removeItem('screenModeReduceImageSize');
+    $('.titledescription, .commercecontainer, .menu-border-2, #menu-header-menu, .border, .recent-posts-block, .sub-menu, .product-cat-page').css('background', '');
+    $('img').css('padding', '0');
+    $('figure').css('border','1px solid');
+    window.location.reload();
+}
+
+// Check if font size and desaturation are previously saved and apply them
 var curFontSize = localStorage.getItem('FontSize');
 if (curFontSize) {
-    $('p').css('font-size', curFontSize);
+    $('p, h4').css('font-size', curFontSize);
+}
+
+if (localStorage.getItem('screenModeSaturateTokenState') === 'desaturate') {
+    desaturatePage();
+}
+
+if (localStorage.getItem('screenModeReduceImageSize') === 'ImageSize') {
+    smallImage();
 }
 
 // Click event handlers
 $(".increaseFont").click(increaseFontSize);
+$(".imgSize").click(smallImage);
 $(".decreaseFont").click(decreaseFontSize);
-$(".clearInputs").click(resetFontSize);
-
-
-if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
-   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
-   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor,.fullWSHome,.current-menu-item, .lds-roller div').addClass('blackBack');
-
-  }
-
-
-$('.desaturateMenu').on('click',function(){
-	localStorage.setItem('screenModeSaturateTokenState', 'desaturate');
-	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor, .fullWSHome,.current-menu-item, .lds-roller div ').addClass('blackBack');
+$(".desaturate").click(desaturatePage);
+$(".clearInputs").click(resetPage);
 
 
 
+//sticky header 
+
+$(window).scroll(function() {
+    // Check if the page has been scrolled past 180px
+    if ($(this).scrollTop() > 180) {
+        // Add the 'sticky' class to the header
+        $('header').addClass('sticky');
+    } else {
+        // Remove the 'sticky' class from the header
+        $('header').removeClass('sticky');
+    }
 });
-$('.clearInputs').on('click',function(){
-	localStorage.setItem('screenModeSaturateTokenState', 'saturated');
-	// localStorage.setItem('FontSize', normalFontSize);
-	// $("body,h1.pageTitle, h2, h3, h4, h5, h6, a").css("font-size", '.9rem');
-	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu, #menu-header-menu, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select, .gearEachInner h2, .specsAvail, .registerLink').removeClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button ,  #menu-header-menu .current_page_ancestor, .openWSHome, .fullWSHome, .current-menu-item, .lds-roller div').removeClass('blackBack');
-	// $('#fontSizeRange').val('0');
-	// // curFontSizeNew = 15;å
-	// document.getElementById("fontSizeRange").value = curFontSizeNew;
-	// localStorage.setItem('FontSize', 'normal');
-	// $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', 'revert');
-
-});
-
 
 
     

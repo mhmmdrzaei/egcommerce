@@ -70,7 +70,8 @@
                    
                  </section>
                  <section class="desaturateMenu" aria-label="Desaturate pages to white with black buttons and links">
-                   <button class="desaturate">Desaturate Page</button>
+                   <button class="desaturate">High Contrast</button>
+                   <button class="imgSize">Smaller Images</button>
                  </section>
                  <section class="clearselections" aria-label="Clear your inputs and revert to origional styling">
                    <button class="clearInputs">Clear Inputs</button>

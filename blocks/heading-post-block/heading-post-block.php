@@ -26,6 +26,7 @@ function render_heading_post_block($block) {
 ?>
 
 <div class="heading-post-block">
+<div class="border"></div>
 <div class='container'>
     <a href="<?php echo esc_url($post_permalink); ?>">
          <figure>

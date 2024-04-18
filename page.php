@@ -1,8 +1,8 @@
 <?php get_header();  ?>
-<main class="singlePage container">
+<main class="singlePage ">
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-  <section class="pageContent">
+  <section class="pageContent container">
 
   <?php
 // Check if it's a product category page

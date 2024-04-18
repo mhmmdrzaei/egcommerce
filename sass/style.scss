@@ -103,11 +103,7 @@ h4 {
 	display: flex;
 	flex-flow: row wrap;
 }
-main {
-    width: 100%;
-    margin: 0 auto;
 
-}
 
 .container {
     max-width: 1300px;
@@ -127,6 +123,12 @@ main {
         }
     }
 
+
+}
+
+main {
+    width: 100%;
+    margin: 150px auto 0;
 
 }
 
@@ -164,6 +166,9 @@ main {
 
 /// HEADER
 .frontHeader {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
     h1 {
         font-family: 'shlopregular', serif;
         @include fontSize(45);
@@ -199,7 +204,6 @@ main {
         margin: 0;
         align-items: center;
     justify-content: space-around;
-    background: #6674F2;
     @extend .caprasimo-regular;
     
     li {
@@ -237,7 +241,7 @@ main {
         left: -1vh;
         padding:40px 35px;
         list-style: none;
-        // background: #6674f2d4;
+        background: linear-gradient(180deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 40%);
         clip-path:polygon(5% 0,80% 0,95% 0px,100% 40%,95% 95%,50% 100%,5% 95%,0 40%);
 
         li {
@@ -270,19 +274,19 @@ main {
             }
         }
         }
-        .sub-menu::before {
-            content: " ";
-            position: absolute;
-            // padding: 40px 35px;
-            clip-path:polygon(5% 0,80% 0,95% 0px,100% 40%,95% 95%,50% 100%,5% 95%,0 40%);
-            background: linear-gradient(180deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 40%);
-            width: 54vh;
-            min-height: 200px;
-            z-index: -1;
-            top: 0;
-            left: 0;
+        // .sub-menu::before {
+        //     content: " ";
+        //     position: absolute;
+        //     // padding: 40px 35px;
+        //     clip-path:polygon(5% 0,80% 0,95% 0px,100% 40%,95% 95%,50% 100%,5% 95%,0 40%);
+        //     background: linear-gradient(180deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 40%);
+        //     width: 54vh;
+        //     min-height: 200px;
+        //     z-index: -1;
+        //     top: 0;
+        //     left: 0;
 
-        }
+        // }
      }
      #menu-header-menu li > ul.sub-menu {
         display: none;
@@ -390,12 +394,29 @@ main {
 
 
 
-
-
-//ACCESS MENU
-.accessMenu {
-    display: none;
+.sticky {
+    position: fixed;
+    background: linear-gradient(90deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 37%);
+    border-bottom: 1px solid black;
+    .headerContainer {
+        align-items: flex-start;
+    }
+    .titledescription {
+        display: none;
+    }
+    .headerMenu {
+        .menu-border,.menu-border-2 {
+            background: transparent;
+        }
+    }
+    .access {
+        display: none;
+    }
+    .accessHeaderContainer .commercecontainer {
+        background: transparent;
+    }
 }
+
 
 
 
@@ -701,6 +722,18 @@ main {
     background-color: #00A3FF;
     // z-index: 2;
     position: relative;
+    .border{
+        clip-path: polygon(0% 5%, 30% 20%, 70% 5%, 100% 10%, 100% 90%, 70% 85%, 30% 95%, 0% 80%);
+        padding: 141px 0;
+        // z-index: 1;
+        background-color: #F09A1C;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 10px;
+    }
+    
     h2 {
         margin-top: 0;
     }
@@ -749,17 +782,6 @@ main {
     &:hover {
         text-decoration: none;
     }
-}
-.heading-post-block::before{
-    clip-path: polygon(0% 5%, 30% 20%, 70% 5%, 100% 10%, 100% 90%, 70% 85%, 30% 95%, 0% 80%);
-    padding: 141px 0;
-    // z-index: 1;
-    background-color: #F09A1C;
-    content: "";
-    width: 100%;
-    height: 410px;
-    position: absolute;
-    top: 10px;
 }
 
 
@@ -1116,7 +1138,7 @@ top: 60px;
 .searchformcontainer {
     display: none;
     padding: 5px 10px 10px 25px;
-    background: #70ff00;
+    background: #000000;
     /* border: 1px solid; */
     position: relative;
     top: -5px;
@@ -1143,6 +1165,30 @@ top: 60px;
     top: 3px;
 
     &::before {
-        content: '+';
+        content: '- +';
+    }
+}
+
+
+
+//ACCESS MENU
+.accessMenu {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    background: #70ff00;
+    text-align: center;
+    padding: 20px;
+    // border: 1px solid black;
+    button {
+        
+        box-shadow: -2px 2px 0 black;
+        border: 1px solid black;
+        font-weight: 700;
+        color: black;
+        background: #FAFF00;
+        margin: 5px 0;
+        padding: 3px 10px; 
+        min-width: 35px;
     }
 }
