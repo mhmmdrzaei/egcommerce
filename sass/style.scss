@@ -169,6 +169,7 @@ main {
     width: 100%;
     position: absolute;
     z-index: 3;
+    top: 20px;
     h1 {
         font-family: 'shlopregular', serif;
         @include fontSize(45);
@@ -396,6 +397,7 @@ main {
 
 .sticky {
     position: fixed;
+    top: 0;
     background: linear-gradient(90deg, rgba(193,229,248,0) 0%, rgba(0,163,255,1) 37%);
     border-bottom: 1px solid black;
     .headerContainer {
@@ -408,12 +410,19 @@ main {
         .menu-border,.menu-border-2 {
             background: transparent;
         }
+        #menu-header-menu {
+            top: 0;
+        }
     }
     .access {
         display: none;
     }
     .accessHeaderContainer .commercecontainer {
         background: transparent;
+        height: 60px;
+    }
+    h1{
+        @include fontSize(30);
     }
 }
 
@@ -581,8 +590,15 @@ main {
 .woocommerce div.product .woocommerce-tabs ul.tabs  {
     min-width: 320px;
 }
-.related {
-    clear: both;
+.product-template-default .container .related {
+    position: absolute;
+    width: calc(100% - 80px);
+    left: 4%;
+    max-width: 1300px;
+    ul {
+        margin: 0 auto;
+    }
+
 }
 .woocommerce div.product .woocommerce-tabs .panel {
     h2 {
