@@ -66,7 +66,7 @@ function render_commerce_category_block($block) {
             $product_id = $product->get_id();
             $product_link = get_permalink($product_id);
             $product_title = get_the_title($product_id);
-            $product_image = get_the_post_thumbnail($product_id, 'thumbnail');
+            $product_image = get_the_post_thumbnail($product_id, 'large');
             $product_gallery_ids = $product->get_gallery_image_ids();
             $add_to_cart_url = $product->add_to_cart_url();
             ?>
@@ -98,16 +98,6 @@ function render_commerce_category_block($block) {
         ?>
     </div>
 <?php endif; ?>
-
-                <?php
-                if (!empty($product_gallery_ids)) {
-                    echo "<div class='product-carousel'>";
-                    foreach ($product_gallery_ids as $gallery_id) {
-                        echo wp_get_attachment_image($gallery_id, 'thumbnail');
-                    }
-                    echo "</div>";
-                }
-                ?>
                 </a>
                 <section class="product_info">
                 <h4><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h4>

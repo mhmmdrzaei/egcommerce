@@ -274,15 +274,15 @@ $(window).scroll(function() {
         $('header').removeClass('sticky');
     }
 });
-//related height
-if ($('body').hasClass('product-template-default')) {
-    // Find the height of div.related
-    var relatedHeight = $('.related').height();
-    var fullheight = relatedHeight + 154;
+// //related height
+// if ($('body').hasClass('product-template-default')) {
+//     // Find the height of div.related
+//     var relatedHeight = $('.related').height();
+//     var fullheight = relatedHeight + 154;
     
-    // Set the margin-top of the footer to the height of div.related
-    $('footer').css('margin-top', fullheight);
-}
+//     // Set the margin-top of the footer to the height of div.related
+//     $('footer').css('margin-top', fullheight);
+// }
 
     
 });

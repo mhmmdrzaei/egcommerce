@@ -26,6 +26,7 @@ Emily Gove Commerce WordPress Theme, (C) 2024 Mohammad Rezaei
 @import 'typography';
 @import 'navigation';
 @import 'footer';
+@import 'woocom';
 /*
 ====================================
 Default Styling
@@ -509,7 +510,20 @@ main {
         }
 
     }
-    
+    .product-image {
+        min-height: 350px;
+        position: relative;
+        max-height: 360px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+        }
+    }
     .prev-btn,
 .next-btn {
     // position: absolute;
@@ -590,15 +604,29 @@ main {
 .woocommerce div.product .woocommerce-tabs ul.tabs  {
     min-width: 320px;
 }
-.product-template-default .container .related {
-    position: absolute;
-    width: calc(100% - 80px);
-    left: 4%;
-    max-width: 1300px;
-    ul {
-        margin: 0 auto;
-    }
+// .product-template-default .container .related {
+//     position: absolute;
+//     width: calc(100% - 80px);
+//     left: 4%;
+//     max-width: 1300px;
+//     // margin-top:300px;
 
+//     ul {
+//         margin: 0 auto;
+//     }
+
+// }
+.variations {
+    select {
+        height: 30px;
+    background: #ffffff;
+    font-weight: 700;
+    padding: 0px 0px;
+    border-radius: 0px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: red;
+    }
 }
 .woocommerce div.product .woocommerce-tabs .panel {
     h2 {
@@ -654,6 +682,12 @@ main {
     border-radius: 0% !important;
     background-color: transparent !important;
     }
+}
+.flex-control-thumbs {
+    display: flex;
+    list-style: none;
+    padding: 0
+
 }
 .wc-forward {
     @extend .add-to-cart-btn;
@@ -767,10 +801,6 @@ main {
                 overflow: hidden;
                 width: 52%;
                 border: 1px solid black;
-                img {
-                    // max-height: 340px;
-                   
-                }
             }
             .heading-post-content {
                 width: 43%;
@@ -945,9 +975,16 @@ main {
         width: 40%;
         border: 1px solid black;
         margin-right: -1px;
+        height: fit-content;
     }
     .page_content_page_half {
         width: 60%;
+    }
+}
+.page_content_page_half, .page_content_page_full {
+    a {
+        text-decoration: underline;
+        color: #005bc6;
     }
 }
 //PRODUCTS HOME
