@@ -15,6 +15,9 @@
 
 <header class="frontHeader">
   <main class="headerContainer container">
+  <label id="topMenu" class="menu__icon headerMainMenu" for="menu__check">
+       <div class="hamburger-menu"></div> 
+  </label>
     <section class="title">
     <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <h1><?php bloginfo( 'name' ); ?> </h1>
@@ -34,10 +37,6 @@
         'container' => false,
         'theme_location' => 'primary'
       )); ?>
-      <div id="menu-wrapper">
-         <div id="hamburger-menu"><span></span><span></span><span></span></div>
-         <!-- hamburger-menu -->
-      </div>
 
 
     </section>

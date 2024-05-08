@@ -263,7 +263,7 @@ $(".clearInputs").click(resetPage);
 
 
 //sticky header 
-
+if ($(window).width() > 850) {
 $(window).scroll(function() {
     // Check if the page has been scrolled past 180px
     if ($(this).scrollTop() > 180) {
@@ -274,15 +274,19 @@ $(window).scroll(function() {
         $('header').removeClass('sticky');
     }
 });
-// //related height
-// if ($('body').hasClass('product-template-default')) {
-//     // Find the height of div.related
-//     var relatedHeight = $('.related').height();
-//     var fullheight = relatedHeight + 154;
-    
-//     // Set the margin-top of the footer to the height of div.related
-//     $('footer').css('margin-top', fullheight);
-// }
+}
+//hamburger menu 
+
+$('.menu__icon').click(function(e) {
+    e.stopPropagation(); // prevent this click from being propagated to document
+    $('.headerMenu').toggleClass('openMenu');
+    window.setTimeout(function() {
+        $('.commercecontainer').toggleClass('commerceIn');
+        $('.headerContainer').toggleClass('headerMenuOn');
+    }, 0);
+    $('.hamburger-menu').toggleClass('animate');
+    $('body').toggleClass('bodyOveflow');
+});
 
     
 });

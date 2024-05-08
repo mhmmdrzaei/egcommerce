@@ -31,6 +31,12 @@ $args = array(
             'field' => 'term_id',
             'terms' => $category_id
         )
+        ,
+        array(
+            'taxonomy' => 'product_tag', // Use product_tag taxonomy
+            'field' => 'slug',
+            'terms' => 'visible'
+        )
     ),
     'meta_query' => array(
         array(
@@ -105,7 +111,7 @@ $products = new WP_Query($args);
                     $product_id = $product->get_id();
                     $product_link = get_permalink($product_id);
                     $product_title = get_the_title($product_id);
-                    $product_image = get_the_post_thumbnail($product_id, 'thumbnail');
+                    $product_image = get_the_post_thumbnail($product_id, 'large');
                     $price = $product->get_price_html();
                     $add_to_cart_url = $product->add_to_cart_url();
                     $product_gallery_ids = $product->get_gallery_image_ids();
@@ -124,7 +130,7 @@ $products = new WP_Query($args);
                                         $post_thumbnail_id = $product->get_image_id();
                                     }
                                     if ($post_thumbnail_id) {
-                                        $html = wc_get_gallery_image_html($post_thumbnail_id, true);
+                                        echo $product_image;
                                     } else {
                                         $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
                                         $html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />', esc_url(wc_placeholder_img_src('woocommerce_single')), esc_html__('Awaiting product image', 'woocommerce'));
@@ -134,13 +140,6 @@ $products = new WP_Query($args);
                                     ?>
                                 </div>
                             <?php endif; ?>
-                            <?php if (!empty($product_gallery_ids)) {
-                                echo "<div class='product-carousel'>";
-                                foreach ($product_gallery_ids as $gallery_id) {
-                                    echo wp_get_attachment_image($gallery_id, 'thumbnail');
-                                }
-                                echo "</div>";
-                            } ?>
                         </a>
                         <section class="product_info">
                             <h4><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h4>

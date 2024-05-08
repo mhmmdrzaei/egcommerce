@@ -41,28 +41,31 @@ function render_recent_posts_block($block) {
             $recent_posts->the_post();
            
             ?>
+            
             <li class="post-item">
+            <a href="<?php the_permalink(); ?>">
                 <?php if (has_post_thumbnail()): ?>
                     <figure class="post-thumbnail">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                        <?php the_post_thumbnail('medium'); ?>
                 </figure>
                     <div class="postContentHalf">
-                        <h3><?php the_title(); ?></a></h3>
+                        <h3><?php the_title(); ?></h3>
                         
                         <?php the_excerpt(); ?>
-                        <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+                        <button class="more-post-btn">More</button>
                     </div>
                     <?php else: ?>
                         <div class="postContentFull">
-                            <h3><?php the_title(); ?></a></h3>
+                            <h3><?php the_title(); ?></h3>
                             
                             <?php the_excerpt(); ?>
-                            <a class="more-post-btn" href="<?php the_permalink(); ?>">More</a>
+                            <button class="more-post-btn" >More</button>
                         </div>
                 <?php endif; ?>
                
-
+                </a>
             </li>
+            
             <?php
         }
         echo "</ul>";

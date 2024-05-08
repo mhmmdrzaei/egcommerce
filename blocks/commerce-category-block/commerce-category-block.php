@@ -42,6 +42,7 @@ function render_commerce_category_block($block) {
         'posts_per_page' => 8,
         'post_type' => 'product',
         'tax_query' => array(
+            'relation' => 'AND', // Ensures both tax queries are met
             array(
                 'taxonomy' => 'site-category',
                 'field' => 'term_id',
@@ -52,6 +53,14 @@ function render_commerce_category_block($block) {
             array(
                 'key' => '_stock_status',
                 'value' => 'instock'
+            )
+        ),
+        'tax_query' => array(
+            'relation' => 'AND', // Ensure both tax queries are met
+            array(
+                'taxonomy' => 'product_tag', // Use product_tag taxonomy
+                'field' => 'slug',
+                'terms' => 'visible'
             )
         )
     );
@@ -87,7 +96,7 @@ function render_commerce_category_block($block) {
         }
 
         if ( $post_thumbnail_id ) {
-            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+            echo $product_image;
         } else {
             $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
             $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
