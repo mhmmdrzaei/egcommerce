@@ -562,3 +562,19 @@ top: 60px;
 
 
 }
+@media(max-width: 850px){
+    .heading-post-block .container a {
+        padding-right: 0;
+        padding-top: 60px;
+        figure {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .heading-post-content {
+            width: 100%;
+        }
+    }
+}
+.heading-post-block:nth-child(2){
+    margin-top: -201px;
+}

@@ -414,7 +414,7 @@
     .menu__icon {
         position: fixed;
         right: 20px;
-        top: 30px;
+        top: 50px;
         background: #6674F2;
         width: 50px;
         height: 45px;
@@ -437,15 +437,17 @@
             min-width: 300px;
             clip-path: none;
             left: 0;
+            padding-left: 0;
             justify-content: center;
-            top: 100px;
-            height: 50px;
+            top: 110px;
+            height: 60px;
     
         }
     } 
     .access {
         position: absolute;
-        top: -20px;
+        top: 0;
+        min-width: 120px;
         right: 0;
     }
     .accessMenu {
@@ -463,6 +465,7 @@
             position: initial;
             height: auto;
             text-align: center;
+            padding: 10px 0;
            }
            li > ul.sub-menu {
             display: flex;
@@ -472,8 +475,14 @@
             clip-path: none;
             background: #00a3ff;
             width: 100%;
+            margin-top: 10px;
             li {
                 display: block;
+                padding: 0 0 5px 0;
+                margin: 0 auto;
+                a {
+                    margin-left: 0;
+                }
             }
          } 
          li:hover > ul.sub-menu{
