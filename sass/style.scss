@@ -218,7 +218,6 @@ main {
         li {
             position: relative;
             .add-to-cart-btn {
-                display: none; /* Initially hide the button */
                 position: absolute; /* Position it absolutely for the animation */
                 
             }
@@ -563,18 +562,86 @@ top: 60px;
 
 }
 @media(max-width: 850px){
-    .heading-post-block .container a {
-        padding-right: 0;
-        padding-top: 60px;
-        figure {
-            width: 80%;
-            margin: 0 auto;
+    .heading-post-block {
+        clip-path: polygon(0 3%,30% 7%,70% 3%,100% 7%,100% 95%,70% 90%,30% 95%,0 90%);
+        .border {
+            clip-path: polygon(0 3%,30% 7%,70% 3%,100% 7%,100% 95%,70% 90%,30% 95%,0 90%);
         }
-        .heading-post-content {
-            width: 100%;
+        .container a {
+            padding-right: 0;
+            figure {
+                width: 80%;
+                margin: 0 auto;
+            }
+            .heading-post-content {
+                width: 100%;
+            }
+        }
+
+    } 
+    .heading-post-block:nth-child(2){
+        margin-top: -130px;
+    }
+    .recent-posts-block {
+        margin-top: -60px;
+        .container {
+            display: block;
+            .more-updates-btn {
+                width: 100%;
+                display: block;
+            }
+            .post-list {
+                display: block;
+                width: 100%;
+                li {
+                    width: 100%;
+                    margin-bottom: 30px;
+                    a {
+                        display: block;
+                        .postContentFull,.postContentHalf {
+                            min-height: auto;
+                            width: 90%;
+                            margin: 0 auto;
+                        }
+                        .post-thumbnail {
+                            width: 80%;
+                            // max-width: 240px;
+                            margin: 0 auto 10px;
+                        }
+                    }
+                }
+            }
         }
     }
-}
-.heading-post-block:nth-child(2){
-    margin-top: -201px;
+
+    .commerce-category-block {
+        clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
+        .border {
+            clip-path: polygon(100% 0, 100% 100%, 0 97%, 0 2%);
+        }
+        .container {
+            padding: 50px 20px 100px;
+        }
+        .product-container {
+            .product-list {
+                display: block;
+                li {
+                    width: 100%;
+                    max-width: 100%;
+                   .add-to-cart-btn {
+                    opacity: 1;
+                   }
+                }
+            }
+        }
+    }
+    .commerce-category-block:nth-child(even) {
+        clip-path: polygon(0 100%, 0 0, 100% 2%, 100% 98%);
+        .border {
+            clip-path: polygon(0 100%, 0 0, 100% 2%, 100% 98%);
+        }
+    }
+    .commerce-category-block:nth-child(n +1) {
+        margin-top: -60px;
+    }
 }

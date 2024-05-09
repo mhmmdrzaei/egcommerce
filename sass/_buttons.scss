@@ -61,3 +61,12 @@
    top: 2px;
    left: 6px;
 }
+@media(max-width: 850px){
+   .more-post-btn {
+      position: initial;
+   }
+   .add-to-cart-btn {
+      transform: translateY(0%);
+      opacity: 1;
+   }
+}

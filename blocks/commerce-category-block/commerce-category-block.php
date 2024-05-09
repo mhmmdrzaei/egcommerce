@@ -39,7 +39,7 @@ function render_commerce_category_block($block) {
     echo "<h2><a href='$category_link'>$category_name</a></h2>";
     // Output recent products
     $args = array(
-        'posts_per_page' => 8,
+        'posts_per_page' =>  wp_is_mobile() ? 3 : 8,
         'post_type' => 'product',
         'tax_query' => array(
             'relation' => 'AND', // Ensures both tax queries are met

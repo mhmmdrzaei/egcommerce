@@ -72,3 +72,34 @@ footer {
         width: 100%;
     }
 }
+@media(max-width: 850px){
+    footer {
+        .footerContainer{
+            text-align: center;
+            .email{
+                width: 100%;
+                order: 2;
+            }
+            .footerlogo {
+                width: 100%;
+                order: 1;
+                margin: 0 auto;
+            }
+            #menu-footer-menu {
+                width: 100%;
+                order: 3;
+                li {
+                    text-align: left;
+
+                }
+                li:nth-last-child(-n + 2){
+                    text-align: right;
+                }
+            }
+            .copyright {
+                order: 4;
+                margin-top: 0;
+            }
+        }
+    }
+}
