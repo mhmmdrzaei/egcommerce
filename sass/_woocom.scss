@@ -88,6 +88,7 @@
     background-size: contain;
     border-radius: 0% !important;
     background-color: transparent !important;
+    z-index: 1 !important;
     }
 }
 .flex-control-thumbs {
@@ -118,6 +119,7 @@
     border-radius: 0 !important;
     background-color: transparent !important;
     font-size: 1.2em !important;
+    z-index: 1 !important;
 
     }
     .images {
@@ -183,4 +185,11 @@
     border: 1px solid;
     min-height: 30px;
     margin: 10px 0;
+}
+@media(max-width: 850px){
+    .single-product-container {
+        .images,.summary {
+            width: 100%;
+        }
+    }
 }

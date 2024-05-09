@@ -19,7 +19,7 @@
     <a href="<?php the_permalink(); ?>">
         <?php if (has_post_thumbnail()): ?>
             <figure class="post-thumbnail">
-                <?php the_post_thumbnail('medium'); ?>
+                <?php the_post_thumbnail('large'); ?>
         </figure>
             <div class="postContentHalf">
                 <h3><?php the_title(); ?></h3>

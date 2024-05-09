@@ -8,13 +8,14 @@
     // Get the terms (categories) for the current product
     $terms = get_the_terms( get_the_ID(), 'site-category' );
     if ( $terms && ! is_wp_error( $terms ) ) {
-        echo '<section class="page-nav"><p>';
+        echo '<section class="page-nav">';
         $term_links = array();
         foreach ( $terms as $term ) {
-            $term_links[] = '<a href="' . esc_url( get_term_link( $term ) ) . '">' . $term->name . '</a> >>';
+            $term_links[] = '<a href="' . esc_url( get_term_link( $term ) ) . '">' . $term->name . '</a> ';
         }
-        echo implode( ', ', $term_links );
-        echo the_title() .'<p></section>';
+        echo implode( '', $term_links );
+        echo '>> ';
+        echo the_title() .'</section>';
     }
     ?>
 

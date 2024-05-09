@@ -20,7 +20,13 @@
      .headerContainer {
         @extend .flex;
         justify-content: space-between;
+        .title {
+            a { &:hover {
+                text-decoration: none;
+            }}
+        }
      }
+     
      .headerMenu {
         width: 40%;
         max-width: 400px;
@@ -470,6 +476,7 @@
             height: auto;
             text-align: center;
             padding: 10px 0;
+            @include fontSize(13);
            }
            li > ul.sub-menu {
             display: flex;
@@ -524,3 +531,8 @@
 
 }
 
+@media(max-width: 410px){
+    .frontHeader h1 {
+        @include fontSize(25);
+    }
+}

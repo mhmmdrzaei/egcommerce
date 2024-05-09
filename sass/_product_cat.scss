@@ -90,3 +90,33 @@
     padding: 0;
     list-style: none;
 }
+@media(max-width: 850px){
+    .product-container {
+        li {
+            width: calc(50% - 20px);
+            .add-to-cart-btn {
+                opacity: 1;
+            }
+        }
+
+    } 
+    .product-cat-page {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 35px);
+        .border {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 35px);
+        }
+        .container h2 {
+            top: 16px;
+        }
+        
+    }
+
+}
+@media(max-width: 600px){
+    .product-container {
+        li {
+            width: 100%;
+            
+        }
+    } 
+}
