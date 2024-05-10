@@ -159,20 +159,20 @@ $('.commerce-category-block').each(function() {
     });
 
 
-    //add to cart button
+    // //add to cart button
 
-    if ($(window).width() > 850) {
-        $('.product-item').hover(
+    // if ($(window).width() > 850) {
+    //     $('.product-item').hover(
         
-            function() {
-                $(this).find('.add-to-cart-btn').css('transform', 'translateY(0%)');
-            },
-            function() {
-                $(this).find('.add-to-cart-btn').css('transform', 'translateY(30%)');
-            }
-        );
+    //         function() {
+    //             $(this).find('.add-to-cart-btn').css('transform', 'translateY(0%)');
+    //         },
+    //         function() {
+    //             $(this).find('.add-to-cart-btn').css('transform', 'translateY(30%)');
+    //         }
+    //     );
 
-    }
+    // }
    
 });
 

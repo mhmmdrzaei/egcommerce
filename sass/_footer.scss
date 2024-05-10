@@ -31,6 +31,7 @@ footer {
         max-width: 200px;
         margin-bottom: 20px;
         width: 33%;
+        padding: 20px;
     }
     #menu-footer-menu {
         list-style: none;
@@ -72,6 +73,11 @@ footer {
         width: 100%;
     }
 }
+@media(max-width: 1000px){
+    .logoCopy {
+        margin: 0 auto;
+    }
+}
 @media(max-width: 850px){
     footer {
         .footerContainer{
@@ -102,4 +108,30 @@ footer {
             }
         }
     }
+    .footermap {
+        width: 46%;
+        order: 3;
+    }
+    .locationaddress {
+        width: 46%;
+        order: 2;
+    }
+    .footerMenu_map {
+        width: 100%;
+        order: 1;
+        margin-top: 20px;
+        #menu-footer-menu {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .logoCopy {
+        order: 4;
+        margin: 0 auto;
+    }
+}
+@media(max-width: 600px){
+.footermap , .locationaddress {
+    width: 100%;
+}
 }

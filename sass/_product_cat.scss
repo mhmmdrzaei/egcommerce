@@ -78,12 +78,14 @@
             position: absolute; /* Position it absolutely for the animation */
             bottom: 15px;
             right: 10px;
+            transform: translateY(10%);
             
         }
         &:hover {
             .add-to-cart-btn {
                 opacity:  1;
-                transition: transform 3s ease; 
+                transform: translateY(0%);
+                transition: transform 1s ease; 
             }
         }
     }

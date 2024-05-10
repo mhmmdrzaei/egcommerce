@@ -218,14 +218,18 @@ main {
         li {
             position: relative;
             .add-to-cart-btn {
-                position: absolute; /* Position it absolutely for the animation */
+                position: absolute;
+                transform: translateY(30%);
+                opacity: 0;
+                /* Position it absolutely for the animation */
                 
             }
             &:hover {
                 .add-to-cart-btn {
-                    display: block; /* Show the button on hover */
-                    bottom: 20px;
+                opacity: 1;
+                 bottom: 20px;
                 right: 10px;
+                transform: translateY(0%);
                 transition: transform 1s ease; /* Add transition for smooth animation */
                 }
             }
@@ -503,6 +507,7 @@ main {
     }
     .product_info {
         padding: 10px 10px 40px 10px;
+        min-height: 150px;
     }
 }
 //updates page
@@ -590,9 +595,9 @@ top: 60px;
         min-height: 115px;
     }
     .heading-post-block {
-        clip-path: polygon(0 3%,30% 7%,70% 3%,100% 7%,100% 95%,70% 90%,30% 95%,0 90%);
+        clip-path: polygon(0 3%, 30% 7%, 70% 3%, 100% 7%, 100% 95%, 70% 90%, 30% 95%, 0 93%);
         .border {
-            clip-path: polygon(0 3%,30% 7%,70% 3%,100% 7%,100% 95%,70% 90%,30% 95%,0 90%);
+            clip-path: polygon(0 3%, 30% 7%, 70% 3%, 100% 7%, 100% 95%, 70% 90%, 30% 95%, 0 93%);
         }
         .container a {
             padding-right: 0;
@@ -610,8 +615,9 @@ top: 60px;
         margin-top: -130px;
     }
     .recent-posts-block {
-        margin-top: -60px;
+        margin-top: -85px;
         .container {
+            padding-top: 80px;
             display: block;
             .more-updates-btn {
                 width: 100%;
@@ -675,7 +681,7 @@ top: 60px;
     .commerce-category-block {
         clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
         .border {
-            clip-path: polygon(100% 0, 100% 100%, 0 97%, 0 2%);
+            clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
         }
         .container {
             padding: 50px 20px 100px;
@@ -700,7 +706,7 @@ top: 60px;
         }
     }
     .commerce-category-block:nth-child(n +1) {
-        margin-top: -60px;
+        margin-top: -85px;
     }
 
     .contentContainerSingle {
