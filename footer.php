@@ -1,5 +1,15 @@
 <footer>
 <div class="conebackground"></div>
+<section class="mailingList">
+    <div class="condered"></div>
+    <div class="mailingListLabel">
+    <span class="mailing">Mailing</span>
+    <span class="list">list!</span>
+    </div>
+    <?php echo do_shortcode('[mailpoet_form id="1"]')?>
+
+</section>
+
 <div class="container footerContainer">
 <?php
 if( get_field('footer_with_physical_location_', 'options') ) {

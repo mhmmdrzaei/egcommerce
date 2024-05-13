@@ -189,6 +189,18 @@
     min-height: 30px;
     margin: 10px 0;
 }
+.woocommerce-MyAccount-navigation {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            margin: 5px 0;
+        }
+    }
+}
+.woocommerce-MyAccount-content {
+    margin-bottom: 20px;
+}
 @media(max-width: 850px){
     .single-product-container {
         .images,.summary {

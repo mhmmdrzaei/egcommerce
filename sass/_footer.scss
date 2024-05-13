@@ -1,3 +1,4 @@
+
 footer {
 
     position: relative;
@@ -72,6 +73,91 @@ footer {
     .footerlogo {
         width: 100%;
     }
+}
+.mailingList {
+    margin-left: 10px;
+    position: relative;
+    .condered {
+        background-repeat: repeat-x;
+        background-image: url('images/conered.png');
+        width: 100%;
+        position: absolute;
+        height: 160px;
+        top: -110px;
+    }
+    background-color: #EE130C;
+
+    width: calc(100% - 10px);
+    max-width: 475px;
+    height: 30px;
+    @extend .flex;
+    
+    .mailingListLabel {
+        font-family: 'shlopregular', serif;
+        color: white;
+        @include fontSize(20);
+        width: 164px;
+        position: relative;
+        .mailing {
+            transform: rotate(-53deg);
+            display: flex;
+            position: absolute;
+            top: -40px;
+        }
+        .list {
+            display: flex;
+            transform: rotate(53deg);
+            position: absolute;
+            left: 102px;
+            top: -29px;
+        }
+    }
+    #mailpoet_form_1 {
+        width: calc(100% - 165px);
+        position: relative;
+         top: -10px;
+        
+        form {
+            display: flex;
+            padding: 0 !important;
+            overflow: hidden;
+            ::placeholder {
+                color: white;
+                opacity: 1; /* Firefox */
+              }
+            .mailpoet_text {
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid white;
+                color: white;
+                min-width: 114px;
+                max-width: 159px;
+                outline: none;
+            }
+            .mailpoet_submit {
+                background: transparent;
+                color: white;
+                font-family: 'shlopregular', serif;
+                @include fontSize(20);
+                transform: rotate(-53deg);
+                margin-top: -12px !important;
+                @media (max-width: 499px) {
+                    @include fontSize(20);
+                    font-size: 2rem !important;
+                    line-height: initial !important;
+                    transform: rotate(0deg);
+                }
+
+            }
+        }
+    }
+
+      
+
+}
+.parsley-required, .parsley-custom-error-message,.parsley-errors-list {
+    background: white;
+    padding: 10px;
 }
 @media(max-width: 1000px){
     .logoCopy {
