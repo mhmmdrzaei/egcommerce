@@ -404,6 +404,9 @@
         .headerMenu {
             transform: translate(-20%, 14%);
             width: 45%;
+            #menu-header-menu li .sub-menu {
+                left: -3vh;
+            }
         }
     }
     .accessHeaderContainer {
