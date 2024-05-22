@@ -6,7 +6,8 @@
     <span class="mailing">Mailing</span>
     <span class="list">list!</span>
     </div>
-    <?php echo do_shortcode('[mailpoet_form id="1"]')?>
+    <?php $form_widget = new \MailPoet\Form\Widget();
+echo $form_widget->widget(array('form' => 1, 'form_type' => 'php'));?>
 
 </section>
 

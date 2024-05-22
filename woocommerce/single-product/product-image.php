@@ -22,6 +22,14 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 	return;
 }
 
+add_filter( 'woocommerce_get_image_size_gallery_thumbnail', function( $size ) {
+    return array(
+        'width'  => 900,
+        'height' => 900,
+        'crop'   => 1,
+    );
+} );
+
 global $product;
 
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
@@ -53,3 +61,4 @@ $wrapper_classes   = apply_filters(
 		?>
 	</div>
 </div>
+

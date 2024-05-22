@@ -222,6 +222,21 @@ main {
                 transform: translateY(30%);
                 opacity: 0;
                 /* Position it absolutely for the animation */
+                .onSaleCustom {
+                    font-family: 'shlopregular', serif;
+                    background: url('images/sale.png');
+                background-position: 0 0;
+                background-repeat: no-repeat;
+                background-size: contain;
+                border-radius: 0 !important;
+                background-color: transparent !important;
+                font-size: 1.2em !important;
+                z-index: 1 !important;
+                left: auto !important;
+                right: -.5em;
+                
+            
+                }
                 
             }
             &:hover {

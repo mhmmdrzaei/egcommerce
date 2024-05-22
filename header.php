@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php  wp_title('|', true, 'right'); ?></title>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+  <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a0e058a517a33193b1301975/script.js"></script> <!-- End cookieyes banner -->
   <!-- stylesheets should be enqueued in functions.php -->
   <?php wp_head(); ?>
 </head>

@@ -117,6 +117,12 @@ $products = new WP_Query($args);
                     $product_gallery_ids = $product->get_gallery_image_ids();
             ?>
                     <li class="product-item">
+                    <?php if ( $product->is_on_sale() ) : ?>
+
+                    <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale onSaleCustom">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+
+                    <?php
+                    endif;?>
                         <a href="<?php echo $product_link; ?>">
                             <?php if ($product_image) : ?>
                                 <div class="product-image">

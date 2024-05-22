@@ -155,6 +155,10 @@ footer {
       
 
 }
+#mailpoet_form_1 .mailpoet_validate_success {
+    background: white;
+    padding: 10px;
+}
 .parsley-required, .parsley-custom-error-message,.parsley-errors-list {
     background: white;
     padding: 10px;
@@ -165,6 +169,24 @@ footer {
     }
 }
 @media(max-width: 850px){
+    .mailingList {
+        height: 60px;
+        #mailpoet_form_1 {
+            width: 100%;
+            top: 22px;
+            .mailpoet_paragraph  {
+               
+                input.mailpoet_text {
+                    max-width: 100%;
+                    min-width: 241px;
+                    margin-left: 10px !important;
+                }
+            }
+            .form.mailpoet_form {
+                margin-left: 10px;
+            }
+        }
+    }
     footer {
         .footerContainer{
             text-align: center;

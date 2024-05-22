@@ -68,10 +68,37 @@
         margin-right: 20px;
         margin-bottom: 20px;
         position: relative;
+        .onSaleCustom {
+            font-family: 'shlopregular', serif;
+            background: url(images/sale.png);
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 0 !important;
+            background-color: transparent ;
+            font-size: 1.2em !important;
+            z-index: 1 !important;
+            right: -.5em;
+            color: white;
+            padding: 5px;
+            min-width: 3.236em;
+            max-width: 3.237em;
+            padding: .202em;
+            position: absolute;
+            text-align: center;
+            line-height: 3.236;
+            top: 0;
+            color: #fff;
+        
+    
+        }
         .price {
             position: absolute;
             margin: 0;
             bottom: 15px;
+            ins {
+                color: red;
+            }
         }
         .add-to-cart-btn {
             opacity: 0; /* Initially hide the button */
