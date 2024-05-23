@@ -56,7 +56,12 @@
 .type-product {
     background: white;
     border: 1px solid black;
-    min-height: 402px;
+    min-height: 440px;
+    a img {
+        object-fit: contain;
+        height: 300px !important;
+
+    }
     padding-bottom: 5% !important;
     &:hover {
         box-shadow: -3px 3px 0 black;
