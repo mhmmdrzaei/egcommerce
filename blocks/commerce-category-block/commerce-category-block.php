@@ -85,7 +85,7 @@ function render_commerce_category_block($block) {
                 <?php if ($product->is_on_sale()) : ?>
                     <?php echo apply_filters('woocommerce_sale_flash', '<span class="onsale onSaleCustom">' . esc_html__('Sale!', 'woocommerce') . '</span>', $product); ?>
                 <?php endif; ?>
-
+                <a href="<?php echo $product_link; ?>">
                 <?php if ($product_image): ?>
                     <div class="product-image">
                         <?php echo $product_image; ?>
@@ -111,6 +111,7 @@ function render_commerce_category_block($block) {
                         ?>
                     </div>
                 <?php endif; ?>
+                    </a>
                 <section class="product_info">
                     <h4><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h4>
                     <p class="price"><?php echo $price; ?></p>

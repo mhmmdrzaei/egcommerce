@@ -285,7 +285,7 @@ main {
 .product-image {
     min-height: 350px;
     position: relative;
-    max-height: 360px;
+    max-height: 350px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -694,6 +694,9 @@ top: 60px;
         clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 35px);
     }   
     .commerce-category-block {
+        .next-btn, .prev-btn {
+            display: none !important;
+        }
         clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
         .border {
             clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
@@ -702,15 +705,23 @@ top: 60px;
             padding: 50px 20px 100px;
         }
         .product-container {
+
             .product-list {
-                display: block;
+                // display: block;
+                flex-flow: wrap;
                 li {
-                    width: 100%;
+                    width: 50%;
                     max-width: 100%;
-                   .add-to-cart-btn {
-                    opacity: 1;
-                    transform: translate(0);
-                   }
+                    flex: 0 0 49%;
+                //    .add-to-cart-btn {
+                //     opacity: 1;
+                //     transform: translate(0);
+                //    }
+                }
+                .more-link {
+                    max-width: 100%;
+                    flex: none;
+                    width: 100%;
                 }
             }
         }
@@ -739,7 +750,7 @@ top: 60px;
         }
     }
 }
-@media(max-width: 550px){
+@media(max-width: 600px){
     .upatesPage {
 
         .updatesContainer {
@@ -749,5 +760,32 @@ top: 60px;
             }
 
     }
+    }
+        .commerce-category-block {
+        .next-btn, .prev-btn {
+            display: none;
+        }
+        clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
+        .border {
+            clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 2%);
+        }
+        .container {
+            padding: 50px 20px 100px;
+        }
+        .product-container {
+
+            .product-list {
+                // display: block;
+                flex-flow: wrap;
+                li {
+                    width: 100%;
+                    flex: none;
+                   .add-to-cart-btn {
+                    opacity: 1;
+                    transform: translate(0);
+                   }
+                }
+            }
+        }
     }
 }
