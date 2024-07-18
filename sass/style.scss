@@ -421,22 +421,26 @@ main {
         h2 {
             width: 100%;
         }
+
         .post-list {
             @extend .flex;
             list-style: none;
             justify-content: space-between;
             width: 83%;
             padding: 0;
+            a {
+                color: white;
+              
+                &:hover {
+                    text-decoration: none;
+                }
+            }
             li {
                 width: 48%;
-                a {
-                    color: white;
-                    &:hover {
-                        text-decoration: none;
-                    }
-                    @extend .flex;
-                    justify-content: space-between;
-                    align-items: flex-start;
+                @extend .flex;
+                justify-content: space-between;
+
+                    
                     h3 {
                         margin: 0 0 10px 0;
                     }
@@ -455,7 +459,6 @@ main {
     
                     }
 
-                }
                
                 
             }
@@ -550,14 +553,17 @@ clip-path: polygon(100% 0%,
         list-style: none;
         li {
             a {
-                @extend .flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 30px 0;
                 color: white;
                 &:hover {
                     text-decoration: none;
                 }
+            }
+
+                @extend .flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin: 30px 0;
+
             
                 h3 {
                     margin: 0 0 10px 0;
@@ -576,7 +582,6 @@ clip-path: polygon(100% 0%,
                     min-height: 270px;
     
                 }
-            }
             width: 100%;
 
            
@@ -644,8 +649,8 @@ top: 60px;
                 li {
                     width: 100%;
                     margin-bottom: 30px;
-                    a {
-                        display: block;
+                    display: block;
+
                         .postContentFull,.postContentHalf {
                             min-height: auto;
                             width: 90%;
@@ -656,7 +661,7 @@ top: 60px;
                             // max-width: 240px;
                             margin: 0 auto 10px;
                         }
-                    }
+                    
                 }
             }
         }
@@ -670,7 +675,7 @@ top: 60px;
             }
             .content {
                 li {
-                    a {
+
                         display: block;
                         .postContentFull,.postContentHalf {
                             min-height: auto;
@@ -682,7 +687,6 @@ top: 60px;
                             // max-width: 240px;
                             margin: 0 auto 10px;
                         }
-                    }
                 }
             }
         }

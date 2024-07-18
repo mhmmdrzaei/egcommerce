@@ -157,11 +157,15 @@ footer {
 }
 #mailpoet_form_1 .mailpoet_validate_success {
     background: white;
-    padding: 10px;
+    padding:3px 5px;
+    top: 26% !important;
+    width: 100% !important;
 }
 .parsley-required, .parsley-custom-error-message,.parsley-errors-list {
     background: white;
     padding: 10px;
+    top: 26% !important;
+    width: 100% !important;
 }
 @media(max-width: 1000px){
     .logoCopy {
@@ -170,7 +174,7 @@ footer {
 }
 @media(max-width: 850px){
     .mailingList {
-        height: 60px;
+        height: 90px;
         #mailpoet_form_1 {
             width: 100%;
             top: 22px;
