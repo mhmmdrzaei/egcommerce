@@ -218,3 +218,11 @@
         }
     }
 }
+
+@media(max-width: 500px){
+    .type-product {
+        min-height: 475px;
+        width: 100% !important;
+    }
+}
+
