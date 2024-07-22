@@ -53,37 +53,30 @@
 					<li class="product-item">
 						<a href="<?php echo $product_link; ?>">
 						<?php if ($product_image): ?>
-						<div class="product-image">
-							<?php echo $product_image; ?>
-						</div>
-						<?php else: ?>
-							<div class="product-image">
-								<?php
-								global $product;
+                    <div class="product-image">
+                        <?php echo $product_image; ?>
+                    </div>
+                <?php else: ?>
+                    <div class="product-image">
+                        <?php
+                        global $product;
 
-								if ( $product ) {
-									$post_thumbnail_id = $product->get_image_id();
-								}
+                        if ($product) {
+                            $post_thumbnail_id = $product->get_image_id();
+                        }
 
-								if ( $post_thumbnail_id ) {
-									echo $product_image;
-								} else {
-									$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-									$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-									$html .= '</div>';
-								}
+                        if ($post_thumbnail_id) {
+                            echo $product_image;
+                        } else {
+                            $html = '<div class="woocommerce-product-gallery__image--placeholder">';
+                            $html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />', esc_url(wc_placeholder_img_src('woocommerce_single')), esc_html__('Awaiting product image', 'woocommerce'));
+                            $html .= '</div>';
+                        }
 
-								echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-								?>
-							</div>
-						<?php endif; ?>
-							<?php if (!empty($product_gallery_ids)) {
-								echo "<div class='product-carousel'>";
-								foreach ($product_gallery_ids as $gallery_id) {
-									echo wp_get_attachment_image($gallery_id, 'thumbnail');
-								}
-								echo "</div>";
-							} ?>
+                        echo apply_filters('woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id);
+                        ?>
+                    </div>
+                <?php endif; ?>
 						</a>
 						<section class="product_info">
 							<h4><a href="<?php echo $product_link; ?>"><?php echo $product_title; ?></a></h4>
