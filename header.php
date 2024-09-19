@@ -57,9 +57,7 @@
 
           
         </section>
-        <section class="searchformcontainer">
-        <?php require('searchform.php');?>
-        </section>
+
         <section class="accessMenuCover" aria-label="Accessibility menu container">
                
                <section class="accessMenu">
@@ -79,6 +77,9 @@
        </section>
 
       </section>
+      <section class="searchformcontainer">
+        <?php require('searchform.php');?>
+        </section>
       
   </main>
 

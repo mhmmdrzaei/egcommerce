@@ -75,6 +75,7 @@
         .sub-menu {
         list-style: none;
         width: 54vh;
+        max-width: 400px;
         min-height: 200px;
         z-index: 2;
         margin: 0;
@@ -306,10 +307,12 @@
 .searchformcontainer {
     display: none;
     padding: 5px 10px 10px 25px;
+    height: fit-content;
     background: #000000;
     /* border: 1px solid; */
-    position: relative;
-    top: -5px;
+    position: absolute;
+    top: 10vh;
+    right: 0;
 }
 #searchform {
     display: flex;
@@ -457,6 +460,13 @@
     
         }
     } 
+    .searchformcontainer {
+        top: 18vh;
+        width: 100%;
+    }
+    #searchform input {
+        max-width: 100%;
+    }
     .access {
         position: fixed;
         top: 0;
